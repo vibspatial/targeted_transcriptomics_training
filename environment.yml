@@ -1,0 +1,22 @@
+name: training_env
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.10.8
+  - napari
+  - pyqt
+  - opencv
+  - pip
+  - pytorch
+  - rasterio
+  #- mkl=2024.0.0 # temp workaround, see https://github.com/pytorch/pytorch/issues/123097
+  - pip:
+      - cellpose
+      - bioio
+      - bioio-ome-tiff
+      - bioio-tifffile
+      - napari-spatialdata
+      - git+https://github.com/saeyslab/harpy.git@SC_32_vib_training#egg=sparrow[testing,cli,clustering]
+      - ipython
+      - ipykernel
