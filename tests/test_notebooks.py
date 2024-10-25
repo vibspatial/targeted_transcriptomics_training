@@ -30,7 +30,23 @@ def run_notebook(notebook_path, timeout=600):
         "1.sparrow_pipeline.ipynb",
     ],
 )
-def test_notebooks_harpy_transcriptomics(notebook):
+def test_notebooks_sparrow_pipeline(notebook):
+    root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
+
+    run_notebook(os.path.join(root, "", notebook))
+
+
+@pytest.mark.skipif(
+    not importlib.util.find_spec("cellpose"),
+    reason="requires the cellpose library",
+)
+@pytest.mark.parametrize(
+    "notebook",
+    [
+        "2.sparrow_pipeline_xenium.ipynb",
+    ],
+)
+def test_notebooks_sparrow_pipeline_xenium(notebook):
     root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
 
     run_notebook(os.path.join(root, "", notebook))
