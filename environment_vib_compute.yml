@@ -9,5 +9,9 @@ dependencies:
   - pip:
       - torch
       - cellpose
+      - bioio
+      - bioio-ome-tiff
+      - bioio-tifffile
+      - git+https://github.com/saeyslab/harpy.git@SC_32_vib_training#egg=sparrow[testing,cli,clustering]
       - ipython
       - ipykernel
