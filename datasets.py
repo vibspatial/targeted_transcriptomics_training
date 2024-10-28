@@ -30,6 +30,7 @@ def get_registry(path: str | Path | None = None) -> Pooch:
         version=__version__,
         registry={
             "transcriptomics/resolve/mouse/sdata_resolve_spatial_training.zarr.zip": "1d8dab6bbee4c94e6f7efeda6ae320e5e905266f0777fce959810e6ff07fe0b5",
+            "transcriptomics/xenium/Xenium_V1_humanLung_Cancer_FFPE/sdata_9ee21b52-8472-4930-a553-73e52ef4743e.zarr.zip": "a92ec13183f64077cb36ebca313907c342b5dc486f0e8592c6be9333ae923db8",
         },
     )
     return registry
@@ -41,6 +42,22 @@ def sdata_resolve(output: str | Path = None) -> SpatialData:
     registry = get_registry()
     unzip_path = registry.fetch(
         "transcriptomics/resolve/mouse/sdata_resolve_spatial_training.zarr.zip",
+        processor=pooch.Unzip(),
+    )
+    sdata = read_zarr(os.path.commonpath(unzip_path))
+    sdata.path = None
+    if output is not None:
+        sdata.write(output)
+        sdata = read_zarr(output)
+    return sdata
+
+
+def sdata_xenium(output: str | Path = None) -> SpatialData:
+    """Example transcriptomics dataset"""
+    # Fetch and unzip the file
+    registry = get_registry()
+    unzip_path = registry.fetch(
+        "transcriptomics/xenium/Xenium_V1_humanLung_Cancer_FFPE/sdata_9ee21b52-8472-4930-a553-73e52ef4743e.zarr.zip",
         processor=pooch.Unzip(),
     )
     sdata = read_zarr(os.path.commonpath(unzip_path))

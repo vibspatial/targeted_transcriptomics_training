@@ -50,3 +50,19 @@ def test_notebooks_sparrow_pipeline_xenium(notebook):
     root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
 
     run_notebook(os.path.join(root, "", notebook))
+
+
+@pytest.mark.skipif(
+    not importlib.util.find_spec("sopa"),
+    reason="requires the sopa library",
+)
+@pytest.mark.parametrize(
+    "notebook",
+    [
+        "3.xenium_explorer.ipynb",
+    ],
+)
+def test_notebooks_xenium_explorer(notebook):
+    root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
+
+    run_notebook(os.path.join(root, "", notebook))
