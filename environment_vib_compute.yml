@@ -1,0 +1,13 @@
+name: training_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.8
+  - opencv
+  - pip
+  - rasterio
+  - pip:
+      - torch
+      - cellpose
+      - ipython
+      - ipykernel
