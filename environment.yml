@@ -10,6 +10,7 @@ dependencies:
   - pip
   - pytorch
   - rasterio
+  - rioxarray
   #- mkl=2024.0.0 # temp workaround, see https://github.com/pytorch/pytorch/issues/123097
   - pip:
       - cellpose
@@ -17,8 +18,8 @@ dependencies:
       - bioio-ome-tiff
       - bioio-tifffile
       - napari-spatialdata
-      - git+https://github.com/saeyslab/harpy.git@SC_32_vib_training#egg=sparrow[testing,cli,clustering]
+      - git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing,cli,clustering]
       - ipython
       - ipykernel
 
-#pip install git+https://github.com/saeyslab/harpy.git@SC_32_vib_training\#egg\=sparrow\[testing,cli,clustering\]
+#pip install git+https://github.com/saeyslab/harpy.git@main\#egg\=sparrow\[testing,cli,clustering\]

@@ -53,6 +53,23 @@ def test_notebooks_sparrow_pipeline_xenium(notebook):
 
 
 @pytest.mark.skipif(
+    not importlib.util.find_spec("cellpose")
+    or not importlib.util.find_spec("rioxarray"),
+    reason="requires the cellpose library and the rioxarray library.",
+)
+@pytest.mark.parametrize(
+    "notebook",
+    [
+        "4.sparrow_pipeline_merscope.ipynb",
+    ],
+)
+def test_notebooks_sparrow_pipeline_merscope(notebook):
+    root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
+
+    run_notebook(os.path.join(root, "", notebook))
+
+
+@pytest.mark.skipif(
     not importlib.util.find_spec("sopa"),
     reason="requires the sopa library",
 )

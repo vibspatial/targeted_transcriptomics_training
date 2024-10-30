@@ -3,15 +3,17 @@ channels:
   - conda-forge
 dependencies:
   - python=3.10.8
+  - gdal
   - opencv
   - pip
   - rasterio
   - pip:
       - torch
       - cellpose
-      - bioio
-      - bioio-ome-tiff
-      - bioio-tifffile
-      - git+https://github.com/saeyslab/harpy.git@SC_32_vib_training#egg=sparrow[testing,cli,clustering]
+      - rioxarray
+      #- git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing,cli]
       - ipython
       - ipykernel
+
+#pip cache purge
+#pip install git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing,cli] --no-cache-dir
