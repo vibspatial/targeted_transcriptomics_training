@@ -6,22 +6,22 @@
     - Sparrow/Harpy
       - Door wie
       - Doel
-      - Grote stappen van pipeline
+      - Grote stappen van pipeline ✓
     - SpatialData + Anndata
   - Introductie notebook (1h; 10h-10h45)
     - Oefening: voorbereid sdata (points layer, table, layer, img layer, etc.) inlezen + een aantal plots maken.
     - Checken of installaties correct zijn (op voorhand documentatie voor installatie sturen)
     - Terugkoppelen naar introductie Janick. Tonen wat onderliggende data is (numpy arrays, dataframes, gdf, Anndata...)
   - Pauze (15 min; 10h45-11h)
-  - Lever resolve notebook, deel 1 (1h; 11h-12h)
-    - Notebook nog wat opkuisen
+  - Lever resolve notebook, deel 1 (1h; 11h-12h) ✓
+    - Notebook nog wat opkuisen ✓
     - Pipeline stappen worden uitgelegd + basic (en optionele advanced) oefeningen en vragen.
     - Interactieve plots in Napari
       - Basic: Output bekijken, Segmentatie fine-tunen, segmentatie met en zonder cleaning stappen, ander cropje testen
-      - Advanced: Custom preprocessing stappen (image * 2, layer toevoegen aan sdata, ...)
+      - Advanced: Custom preprocessing stappen (image * 2, layer toevoegen aan sdata, ...) ✓
     - Dag 1 vermoedelijk tot en met clustering
   - Middagpauze (1h; 12h-13h)
-  - Lever resolve notebook, deel 2 (4h; 13h-17h (+ 15 minuten pauze))
+  - Lever resolve notebook, deel 2 (4h; 13h-17h (+ 15 minuten pauze)) ✓
 
 - **Dag 2 (9h30-17h):**
   - Lever resolve notebook, deel 3 (2h; 9h30-11h30)
@@ -29,15 +29,15 @@
     - Iets zeggen over TissUUmaps, BigWarp??
   - Pauze (15 min; 11h30-11h45)
   - Xenium data (45 min; 11h45-12h30)
-    - Bekijk ruwe data
-    - Bekijk data in Xenium Explorer
-    - Notebook maken om data in te lezen (test spatialdata io) + resolve notebook aanpassen voor xeniumdata
+    - Bekijk ruwe data ✓
+    - Bekijk data in Xenium Explorer ✓
+    - Notebook maken om data in te lezen (test spatialdata io) + resolve notebook aanpassen voor xeniumdata ✓
   - Middagpauze (1h; 12h30-13h30)
   - HPC (1.5h; 13h30-15h)
     - Shared conda
-    - Script klaarzetten door ons
+    - Script klaarzetten door ons ✓
     - Hoe data op HPC krijgen (link naar documentatie globus (van HPC)
-    - Vizgen data (spatialdata io bekijken). Grote crop nemen, maar uitleggen.
+    - Vizgen data (spatialdata io bekijken). Grote crop nemen, maar uitleggen. ✓
     - Ruwe Vizgen data ook eens bekijken.
   - Pauze (15 min, 15h-15h15)
   - Advanced spatialdata (15h15-16h15)
