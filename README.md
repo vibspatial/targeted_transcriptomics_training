@@ -134,7 +134,7 @@ python plot_leiden.py \
  --output_dir /staging/leuven/stg_00143/spatial_data_training/merscope
 ```
 
-## Moving data to VSC using Globus
+## Moving data to the VSC using Globus
 
 See [here](globus/globus.ipynb) for a tutorial on how to move data to and from the VSC using Globus.
 
@@ -175,9 +175,9 @@ See [here](globus/globus.ipynb) for a tutorial on how to move data to and from t
     - Notebook maken om data in te lezen (test spatialdata io) + resolve notebook aanpassen voor xeniumdata ✓
   - Middagpauze (1h; 12h30-13h30)
   - HPC (1.5h; 13h30-15h)
-    - Shared conda
+    - Shared conda  ✓ TODO: to be tested by group members of lp_edu_ont2024 if all works fine (can run_slurm.sh be run?)
     - Script klaarzetten door ons ✓
-    - Hoe data op HPC krijgen (link naar documentatie globus (van HPC)
+    - Hoe data op HPC krijgen (link naar documentatie globus (van HPC) ✓
     - Vizgen data (spatialdata io bekijken). Grote crop nemen, maar uitleggen. ✓
     - Ruwe Vizgen data ook eens bekijken.
   - Pauze (15 min, 15h-15h15)
