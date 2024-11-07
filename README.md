@@ -126,11 +126,17 @@ Activate your conda environment:
 source /apps/leuven/rocky8/skylake/2021a/software/Miniconda3/4.12.0/bin/activate $PATH_CONDA_ENV
 ```
 
+Run the python script:
+
 ```
 python plot_leiden.py \
  --sdata_path /staging/leuven/stg_00143/spatial_data_training/merscope/sdata_merscope_crop.zarr \
  --output_dir /staging/leuven/stg_00143/spatial_data_training/merscope
 ```
+
+## Moving data to VSC using Globus
+
+See [here](globus/globus.ipynb) for a tutorial on how to move data to and from the VSC using Globus.
 
 
 - **Dag 1 (9h30-17h):**

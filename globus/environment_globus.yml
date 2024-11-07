@@ -1,0 +1,15 @@
+# install globus connect personal
+# https://docs.globus.org/globus-connect-personal/
+name: globus_environment
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - pip:
+      - python-dotenv
+      - globus-cli
+      - globus-sdk
+      - s3fs
+      - universal_pathlib
+      - minio
