@@ -11,9 +11,11 @@ dependencies:
       - torch
       - cellpose
       - rioxarray
-      #- git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing,cli]
+      - git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing,cli]
       - ipython
       - ipykernel
 
 #pip cache purge
 #pip install git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing,cli] --no-cache-dir
+
+#srun --account=lp_edu_ont2024 --clusters=genius --partition=interactive --ntasks 1 --cpus-per-task 8 --mem=16G --time=08:00:00 --pty bash
