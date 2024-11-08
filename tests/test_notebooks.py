@@ -83,3 +83,15 @@ def test_notebooks_xenium_explorer(notebook):
     root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
 
     run_notebook(os.path.join(root, "", notebook))
+
+
+@pytest.mark.parametrize(
+    "notebook",
+    [
+        "5.explore_sdata.ipynb",
+    ],
+)
+def test_notebooks_explore_sdata(notebook):
+    root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
+
+    run_notebook(os.path.join(root, "", notebook))
