@@ -93,6 +93,8 @@ Submit the job:
 sbatch run_slurm.sh
 ```
 
+This job will approximatly take half an hour to finish.
+
 ### 3. Submit job to explore the data
 
 

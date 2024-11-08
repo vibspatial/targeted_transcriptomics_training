@@ -26,7 +26,7 @@ source $VSC_DATA_VO_USER/miniconda3/bin/activate
 
 conda env create --prefix $PATH_CONDA_ENV -f environment_vib_compute.yml
 
-# activate the environment and install sparrow/harpy
+# activate the environment
 source $VSC_DATA_VO_USER/miniconda3/bin/activate $PATH_CONDA_ENV
 
 # Optional: run a test script, to check if everything installed correctly
