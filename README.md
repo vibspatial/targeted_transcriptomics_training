@@ -152,13 +152,13 @@ See [here](globus/globus.ipynb) for a tutorial on how to move data to and from t
       - Grote stappen van pipeline ✓
     - SpatialData + Anndata
   - Introductie notebook (1h; 10h-10h45)
-    - Oefening: voorbereid sdata (points layer, table, layer, img layer, etc.) inlezen + een aantal plots maken.
+    - Oefening: voorbereid sdata (points layer, table, layer, img layer, etc.) inlezen + een aantal plots maken. ✓
     - Checken of installaties correct zijn (op voorhand documentatie voor installatie sturen)
-    - Terugkoppelen naar introductie Janick. Tonen wat onderliggende data is (numpy arrays, dataframes, gdf, Anndata...)
+    - Terugkoppelen naar introductie Janick. Tonen wat onderliggende data is (numpy arrays, dataframes, gdf, Anndata...) ✓
   - Pauze (15 min; 10h45-11h)
   - Lever resolve notebook, deel 1 (1h; 11h-12h) ✓
     - Notebook nog wat opkuisen ✓
-    - Pipeline stappen worden uitgelegd + basic (en optionele advanced) oefeningen en vragen.
+    - Pipeline stappen worden uitgelegd + basic (en optionele advanced) oefeningen en vragen. ✓
     - Interactieve plots in Napari
       - Basic: Output bekijken, Segmentatie fine-tunen, segmentatie met en zonder cleaning stappen, ander cropje testen
       - Advanced: Custom preprocessing stappen (image * 2, layer toevoegen aan sdata, ...) ✓
@@ -183,5 +183,6 @@ See [here](globus/globus.ipynb) for a tutorial on how to move data to and from t
     - Vizgen data (spatialdata io bekijken). Grote crop nemen, maar uitleggen. ✓
     - Ruwe Vizgen data ook eens bekijken.
   - Pauze (15 min, 15h-15h15)
-  - Advanced spatialdata (15h15-16h15)
+  - Advanced spatialdata (15h15-16h15) ? show notebook on coordinate systems https://harpy.readthedocs.io/en/latest/tutorials/advanced/coordinate_systems.html if there is time left.
+  I think we cover a lot already in notebook 5.explore_sdata.ipynb
   - Vragenuurtje (45 min, 16h15-17h)
