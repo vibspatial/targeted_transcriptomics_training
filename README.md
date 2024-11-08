@@ -183,6 +183,6 @@ See [here](globus/globus.ipynb) for a tutorial on how to move data to and from t
     - Vizgen data (spatialdata io bekijken). Grote crop nemen, maar uitleggen. ✓
     - Ruwe Vizgen data ook eens bekijken.
   - Pauze (15 min, 15h-15h15)
-  - Advanced spatialdata (15h15-16h15) ? show notebook on coordinate systems https://harpy.readthedocs.io/en/latest/tutorials/advanced/coordinate_systems.html if there is time left.
+  - Advanced spatialdata (15h15-16h15) ? maybe for this part we could show notebook on coordinate systems https://harpy.readthedocs.io/en/latest/tutorials/advanced/coordinate_systems.html
   I think we cover a lot already in notebook 5.explore_sdata.ipynb
   - Vragenuurtje (45 min, 16h15-17h)
