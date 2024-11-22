@@ -144,24 +144,64 @@ See [here](globus/globus.ipynb) for a tutorial on how to move data to and from t
 - **Dag 1 (9h30-17h):**
   - Korte presentatie als inleiding (<30 min; 9h30-10h)
     - Targeted transcriptomics
-      - Hoe wordt data gegenereerd?
-      - Ruwe data
+      - Hoe wordt data gegenereerd? ✓ Julien
+      - Ruwe data ✓
+  -  Download data. 0.get_data.ipynb. To be tested on windows.
+      - Checken of installaties correct zijn (op voorhand documentatie voor installatie sturen)
+
+  - Introductie notebook (1h; 10h-12h) # 5.explore_sdata.ipynb Arne( images/labels) Frank( shapes/tables/points )
+    - Oefening: voorbereid sdata (points layer, table, layer, img layer, etc.) inlezen + een aantal plots maken. ✓
+    - Terugkoppelen naar introductie Janick. Tonen wat onderliggende data is (numpy arrays, dataframes, gdf, Anndata...) ✓
+
+  - Lever resolve notebook, deel 1 (13h-16h) 1.sparrow_pipeline.ipynb ✓ Frank/Julien vanaf de table
+    - Pipeline stappen worden uitgelegd + basic (en optionele advanced) oefeningen en vragen. ✓
+    - basic oefeningen toevoegen, parameters/crops/plots...
+    - Interactieve plots in Napari
+      - Basic: Output bekijken, Segmentatie fine-tunen, segmentatie met en zonder cleaning stappen, ander cropje testen
+      - Advanced: Custom preprocessing stappen (image * 2, layer toevoegen aan sdata, ...) ✓
+    - Downstream with squidpy, ... etc TODO Julien
+
+  - Xenium data ( 9h30-10h30) 2.sparrow_pipeline_xenium.ipynb Frank
+    - oefeningen toevoegen 
+    - Bekijk ruwe data ✓
+    - Bekijk data in Xenium Explorer ✓
+    - Notebook maken om data in te lezen (test spatialdata io) + resolve notebook aanpassen voor xeniumdata ✓
+
+  - Xenium explorer (11-12h) 3.xenium_explorer.ipynb Arne
+    - tissuumaps Julien
+    - xenium explorer installatie
+    - hands on
+
+  - Merscope (13h-15h) - 4.sparrow_pipeline_merscope.ipynb
+    - remove VScode TODO
+    - notebook show. Julien.
+    - HPC. Test: Frank. TODO
+    - HPC: Arne
+    - oefening scp ...
+    - excerise ploting.
+    - (moeilijke) exercise, leiden cluster, parameters aanpassen.
+
+  Bonus
+  - Anndata to r
+  - Bigwarp
+  - Advanced spatialdata/coordinate systems
+
+
+
+  
+
+
+  
+
+
     - Sparrow/Harpy
       - Door wie
       - Doel
       - Grote stappen van pipeline ✓
     - SpatialData + Anndata
-  - Introductie notebook (1h; 10h-10h45)
-    - Oefening: voorbereid sdata (points layer, table, layer, img layer, etc.) inlezen + een aantal plots maken. ✓
-    - Checken of installaties correct zijn (op voorhand documentatie voor installatie sturen)
-    - Terugkoppelen naar introductie Janick. Tonen wat onderliggende data is (numpy arrays, dataframes, gdf, Anndata...) ✓
+
   - Pauze (15 min; 10h45-11h)
-  - Lever resolve notebook, deel 1 (1h; 11h-12h) ✓
-    - Notebook nog wat opkuisen ✓
-    - Pipeline stappen worden uitgelegd + basic (en optionele advanced) oefeningen en vragen. ✓
-    - Interactieve plots in Napari
-      - Basic: Output bekijken, Segmentatie fine-tunen, segmentatie met en zonder cleaning stappen, ander cropje testen
-      - Advanced: Custom preprocessing stappen (image * 2, layer toevoegen aan sdata, ...) ✓
+
     - Dag 1 vermoedelijk tot en met clustering
   - Middagpauze (1h; 12h-13h)
   - Lever resolve notebook, deel 2 (4h; 13h-17h (+ 15 minuten pauze)) ✓
