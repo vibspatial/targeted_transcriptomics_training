@@ -36,10 +36,10 @@ def get_registry(path: str | Path | None = None) -> Pooch:
     return registry
 
 
-def sdata_resolve(output: str | Path = None) -> SpatialData:
+def sdata_resolve(path: str | Path = None, output: str | Path = None) -> SpatialData:
     """Example transcriptomics dataset"""
     # Fetch and unzip the file
-    registry = get_registry()
+    registry = get_registry(path=path)
     unzip_path = registry.fetch(
         "transcriptomics/resolve/mouse/sdata_resolve_spatial_training.zarr.zip",
         processor=pooch.Unzip(),
@@ -52,10 +52,10 @@ def sdata_resolve(output: str | Path = None) -> SpatialData:
     return sdata
 
 
-def sdata_xenium(output: str | Path = None) -> SpatialData:
+def sdata_xenium(path: str | Path = None, output: str | Path = None) -> SpatialData:
     """Example transcriptomics dataset"""
     # Fetch and unzip the file
-    registry = get_registry()
+    registry = get_registry(path)
     unzip_path = registry.fetch(
         "transcriptomics/xenium/Xenium_V1_humanLung_Cancer_FFPE/sdata_9ee21b52-8472-4930-a553-73e52ef4743e.zarr.zip",
         processor=pooch.Unzip(),
