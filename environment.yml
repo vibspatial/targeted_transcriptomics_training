@@ -21,6 +21,7 @@ dependencies:
       - napari-spatialdata
       - spatialdata-plot
       - git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing]
+      - sopa
       - ipython
       - ipykernel
 
