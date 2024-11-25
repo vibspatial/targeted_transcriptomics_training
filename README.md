@@ -155,7 +155,7 @@ See [here](globus/globus.ipynb) for a tutorial on how to move data to and from t
 
   - Lever resolve notebook, deel 1 (13h-16h) 1.sparrow_pipeline.ipynb ✓ Frank/Julien vanaf de table
     - Pipeline stappen worden uitgelegd + basic (en optionele advanced) oefeningen en vragen. ✓
-    - basic oefeningen toevoegen, parameters/crops/plots...
+    - basic oefeningen toevoegen, parameters/crops/plots... ✓
     - Interactieve plots in Napari
       - Basic: Output bekijken, Segmentatie fine-tunen, segmentatie met en zonder cleaning stappen, ander cropje testen
       - Advanced: Custom preprocessing stappen (image * 2, layer toevoegen aan sdata, ...) ✓
