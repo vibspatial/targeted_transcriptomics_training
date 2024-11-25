@@ -13,12 +13,14 @@ dependencies:
   - rioxarray
   #- mkl=2024.0.0 # temp workaround, see https://github.com/pytorch/pytorch/issues/123097
   - pip:
+      - scanpy==1.10.3 # temp workaround, wait for this issue in spatialdata-plot te be resolved: https://github.com/scverse/spatialdata-plot/issues/389
       - cellpose
       - bioio
       - bioio-ome-tiff
       - bioio-tifffile
       - napari-spatialdata
-      - git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing,cli,clustering]
+      - spatialdata-plot
+      - git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing]
       - ipython
       - ipykernel
 
