@@ -41,6 +41,17 @@ def main(sdata_path: str | Path, output_dir: str | Path):
     )
     plt.close()
 
+    sc.pl.rank_genes_groups(
+        sdata.tables["table_transcriptomics_clustered"],
+        n_genes=8,
+        sharey=False,
+        show=False,
+    )
+    plt.savefig(
+        os.path.join(output_dir, "rank_genes_redo" + "_umap.png"), bbox_inches="tight"
+    )
+    plt.close()
+
     sp.pl.plot_shapes(
         sdata,
         img_layer="clahe",
