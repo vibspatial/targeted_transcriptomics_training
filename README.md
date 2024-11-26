@@ -136,9 +136,54 @@ python plot_leiden.py \
  --output_dir /staging/leuven/stg_00143/spatial_data_training/merscope
 ```
 
+### Excercise
+
+- Make a Python script that plots the leiden clusters for `x_min=30000`, `x_max=40000`, `y_min=30000`, `y_max=40000`. Submit to the HPC using a slurm script.
+- Use the `SpatialData` `.zarr` store obtained using the `run_merscope.py` Python script and accompanying slurm script `run_slurm.sh`, and write a Python script that only does leiden clustering and visualization of the leiden clusters. Change the parameters of `sp.tb.leiden`.
+
 ## Moving data to the VSC using Globus
 
 See [here](globus/globus.ipynb) for a tutorial on how to move data to and from the VSC using Globus.
+
+
+## Steps to Connect to the VSC with VS Code Remote - SSH
+
+### Install VS Code and the Remote - SSH Extension:
+
+    - Open VS Code.
+
+    - Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or pressing Ctrl+Shift+X.
+
+    - Search for "Remote - SSH" and install it.
+
+### Configure SSH in VS Code:
+
+    - Press F1 to open the Command Palette in VS Code.
+
+    - Type Remote-SSH: Open Configuration File... and select it.
+
+    - Choose the SSH configuration file to edit. It’s usually located at ~/.ssh/config.
+
+    - Add the following configuration to the file:
+
+```yaml
+Host hpc_tier_2_leuven
+    HostName login.hpc.kuleuven.be
+    User {YOUR_USERNAME}
+    ForwardAgent yes
+```
+
+### Connect to the Remote Server:
+
+    - Press F1 to open the Command Palette.
+
+    - Type Remote-SSH: Connect to Host... and select it.
+
+    - You should see `hpc_tier_2_leuven` in the list. Select it.
+
+    - VS Code will open a new window and start connecting to the remote server.
+    
+    - You might be prompted for your SSH key passphrase or password.
 
 
 - **Dag 1 (9h30-17h):**
