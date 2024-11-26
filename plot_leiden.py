@@ -33,6 +33,19 @@ def main(sdata_path: str | Path, output_dir: str | Path):
         output=os.path.join(output_dir, "leiden_test"),
     )
 
+    sp.pl.plot_shapes(
+        sdata,
+        img_layer="clahe",
+        table_layer="table_transcriptomics_clustered",
+        column="Alas2",
+        shapes_layer="segmentation_mask_boundaries",
+        alpha=1,
+        linewidth=0,
+        channel="DAPI",
+        crd=[20000, 30000, 20000, 30000],
+        output=os.path.join(output_dir, "Alas2"),
+    )
+
 
 if __name__ == "__main__":
     # Initialize the argument parser
