@@ -22,7 +22,7 @@ def main(sdata_path: str | Path, output_dir: str | Path):
         output_layer="table_transcriptomics_clustered",
         calculate_umap=True,
         calculate_neighbors=True,
-        n_pcs=17,
+        n_pcs=10,
         n_neighbors=35,
         resolution=1.0,
         rank_genes=True,
@@ -37,7 +37,7 @@ def main(sdata_path: str | Path, output_dir: str | Path):
     )
 
     plt.savefig(
-        os.path.join(output_dir, "leiden_test" + "_umap.png"), bbox_inches="tight"
+        os.path.join(output_dir, "leiden_redo" + "_umap.png"), bbox_inches="tight"
     )
     plt.close()
 
