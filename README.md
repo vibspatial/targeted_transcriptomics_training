@@ -136,7 +136,7 @@ python plot_leiden.py \
  --output_dir /staging/leuven/stg_00143/spatial_data_training/merscope
 ```
 
-### Excercise
+### Excercises
 
 For the following excercises, use the `SpatialData` `.zarr` store obtained using the `run_merscope.py` Python script and accompanying slurm script `run_slurm.sh`.
 
@@ -204,7 +204,7 @@ Host {NAME}
     ForwardAgent yes
 ```
 
-{YOUR_HOSTNAME} is the name of the cluster you want to connect to (e.g. via ssh {YOUR_HOSTNAME}), and {NAME} can be a name of choice.
+{YOUR_HOSTNAME} is the name of the cluster you want to connect to (e.g. via ssh {YOUR_USERNAME}@{YOUR_HOSTNAME}), and {NAME} can be a name of choice.
 
 ### Connect to the Remote Server:
 
