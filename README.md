@@ -143,13 +143,41 @@ For the following excercises, use the `SpatialData` `.zarr` store obtained using
 - Create a Python script that plots the leiden clusters for `x_min=30000`, `x_max=40000`, `y_min=30000`, `y_max=40000`. Submit to the HPC using a slurm script.
 - Create a Python script that plots the expression level of the gene `Alas2` in the region `x_min=30000`, `x_max=40000`, `y_min=30000`, `y_max=40000`. Submit to the HPC using a slurm script.
 - Create a Python script that only does leiden clustering and visualization of the leiden clusters. Modify the parameters of `sp.tb.leiden`.
+- Create a notebook that does leiden clustering, and visualizes the leiden clusters. Run the notebook. Please make sure not to run the notebook on one of the login nodes of the HPC.
 
 ## Moving data to the VSC using Globus
 
 See [here](globus/globus.ipynb) for a tutorial on how to move data to and from the VSC using Globus.
 
 
-## Steps to Connect to the VSC with VS Code Remote - SSH
+## Use VS Code via Open OnDemand
+
+### VSC KU Leuven
+
+Go to [Open OnDemand](https://ondemand.hpc.kuleuven.be)
+
+Choose Visual Studio Code. Select `Launch` and then connect.
+
+Select the kernel when you want to run Jupyter Notebooks, e.g. `/staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env`.
+
+### VSC Ugent
+
+Work with a VS Code tunnel.
+
+Follow instruction [here](https://docs.hpc.ugent.be/Linux/vscodetunnel/)
+
+### VIB Compute
+
+Work with a VS code tunnel.
+
+Follow instructions [here](https://docs.datacore.vib.be/compute-cluster/entrypoints/command-line-access/#connect-using-a-visual-studio-code-tunnel)
+
+Or via [Open OnDemand](https://docs.datacore.vib.be/compute-cluster/entrypoints/open-on-demand/vs-code-web-server).
+
+
+## Connect to a remote Cluster with VS Code Remote - SSH
+
+(not recommended on the login nodes of the VSC)
 
 ### Install VS Code and the Remote - SSH Extension:
 
@@ -170,11 +198,13 @@ See [here](globus/globus.ipynb) for a tutorial on how to move data to and from t
     - Add the following configuration to the file:
 
 ```yaml
-Host hpc_tier_2_leuven
-    HostName login.hpc.kuleuven.be
+Host {NAME}
+    HostName {YOUR_HOSTNAME}
     User {YOUR_USERNAME}
     ForwardAgent yes
 ```
+
+{YOUR_HOSTNAME} is the name of the cluster you want to connect to (e.g. via ssh {YOUR_HOSTNAME}), and {NAME} can be a name of choice.
 
 ### Connect to the Remote Server:
 
@@ -182,7 +212,7 @@ Host hpc_tier_2_leuven
 
     - Type Remote-SSH: Connect to Host... and select it.
 
-    - You should see `hpc_tier_2_leuven` in the list. Select it.
+    - You should see `{NAME}` in the list. Select it.
 
     - VS Code will open a new window and start connecting to the remote server.
     
