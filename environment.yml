@@ -30,7 +30,7 @@ dependencies:
 
 # if issues, manually do 
 #pip install squidpy==1.6.2
-#pip install spatialdata==0.6.2
+#pip install spatialdata==0.2.6
 # caused by incompatible xarray versions:
 # https://github.com/scverse/squidpy/blob/a9a0a0f2bb42452ffd55c7635dd4dd3739de9698/pyproject.toml#L75 and 
 # https://github.com/scverse/spatialdata/blob/72dbffdbc1c949b6e1a5c83a52914e3f20b2d581/pyproject.toml#L46
