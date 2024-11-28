@@ -13,7 +13,7 @@ dependencies:
   - rioxarray
   #- mkl=2024.0.0 # temp workaround, see https://github.com/pytorch/pytorch/issues/123097
   - pip:
-      - scanpy==1.10.3 # temp workaround, wait for this issue in spatialdata-plot te be resolved: https://github.com/scverse/spatialdata-plot/issues/389
+      - scanpy # temp workaround, wait for this issue in spatialdata-plot te be resolved: https://github.com/scverse/spatialdata-plot/issues/389
       - cellpose
       - bioio
       - bioio-ome-tiff
@@ -21,8 +21,16 @@ dependencies:
       - napari-spatialdata
       - spatialdata-plot
       - git+https://github.com/saeyslab/harpy.git@main#egg=sparrow[testing]
-      - sopa
+      #- sopa
       - ipython
       - ipykernel
 
 #pip install git+https://github.com/saeyslab/harpy.git@main\#egg\=sparrow\[testing,cli,clustering\]
+
+
+# if issues, manually do 
+#pip install squidpy==1.6.2
+#pip install spatialdata==0.6.2
+# caused by incompatible xarray versions:
+# https://github.com/scverse/squidpy/blob/a9a0a0f2bb42452ffd55c7635dd4dd3739de9698/pyproject.toml#L75 and 
+# https://github.com/scverse/spatialdata/blob/72dbffdbc1c949b6e1a5c83a52914e3f20b2d581/pyproject.toml#L46
