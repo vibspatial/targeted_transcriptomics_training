@@ -150,13 +150,33 @@ For the following excercises, use the `SpatialData` `.zarr` store obtained using
 See [here](globus/globus.ipynb) for a tutorial on how to move data to and from the VSC using Globus.
 
 
-## Use VS Code via Open OnDemand
+## Use VS Code on the VSC
+
+Make sure to install miniconda:
+
+```
+cd $VSC_DATA
+mkdir -p miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
+bash miniconda3/miniconda.sh -b -u -p miniconda3
+rm -rf miniconda3/miniconda.sh
+miniconda3/bin/conda init bash
+```
+
+```
+cd $VSC_DATA/miniconda3/envs
+ln -s /staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env
+```
 
 ### VSC KU Leuven
 
 Go to [Open OnDemand](https://ondemand.hpc.kuleuven.be)
 
-Choose Visual Studio Code. Select `Launch` and then connect.
+Choose Visual Studio Code.
+
+Make sure to change the number of hours, and set the number of processes per node to 8.
+
+Select `Launch` and then connect.
 
 Select the kernel when you want to run Jupyter Notebooks, e.g. `/staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env`.
 
