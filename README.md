@@ -152,7 +152,7 @@ See [here](globus/globus.ipynb) for a tutorial on how to move data to and from t
 
 ## Use VS Code on the VSC
 
-Make sure to install miniconda:
+Make sure to install miniconda to be able to use the prebuild conda environment in a VS Code session:
 
 ```
 cd $VSC_DATA
@@ -163,10 +163,14 @@ rm -rf miniconda3/miniconda.sh
 miniconda3/bin/conda init bash
 ```
 
+Make a symlink to the prebuild conda environment.
+
 ```
 cd $VSC_DATA/miniconda3/envs
 ln -s /staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env
 ```
+
+After launching VS Code (see below), please make sure to install the Python and Jupyter extensions, otherwise VS Code will not be able to find the Python environments.
 
 ### VSC KU Leuven
 
