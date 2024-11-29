@@ -13,7 +13,6 @@ dependencies:
   - rioxarray
   #- mkl=2024.0.0 # temp workaround, see https://github.com/pytorch/pytorch/issues/123097
   - pip:
-      - scanpy # temp workaround, wait for this issue in spatialdata-plot te be resolved: https://github.com/scverse/spatialdata-plot/issues/389
       - cellpose
       - bioio
       - bioio-ome-tiff
