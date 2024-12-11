@@ -4,10 +4,10 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import scanpy as sc
-import sparrow as sp
+import harpy as hp
 from spatialdata import read_zarr
 
-from sparrow.utils.pylogger import get_pylogger
+from harpy.utils.pylogger import get_pylogger
 
 log = get_pylogger(__name__)
 
@@ -15,7 +15,7 @@ log = get_pylogger(__name__)
 def main(sdata_path: str | Path, output_dir: str | Path):
     sdata = read_zarr(sdata_path)
 
-    sdata = sp.tb.leiden(
+    sdata = hp.tb.leiden(
         sdata,
         labels_layer="segmentation_mask",
         table_layer="table_transcriptomics_filter",
@@ -52,7 +52,7 @@ def main(sdata_path: str | Path, output_dir: str | Path):
     )
     plt.close()
 
-    sp.pl.plot_shapes(
+    hp.pl.plot_shapes(
         sdata,
         img_layer="clahe",
         table_layer="table_transcriptomics_clustered",

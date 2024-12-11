@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pooch
 from pooch import Pooch
-from sparrow import __version__
+from harpy import __version__
 from spatialdata import SpatialData, read_zarr
 
 BASE_URL = "https://objectstor.vib.be/spatial-hackathon-public/sparrow/public_datasets"

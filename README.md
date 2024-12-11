@@ -74,7 +74,7 @@ python
 and then in the python shell:
 
 ```
-import sparrow
+import harpy
 ```
 
 ### 2. Submit jobs
@@ -142,7 +142,7 @@ For the following excercises, use the `SpatialData` `.zarr` store obtained using
 
 - Create a Python script that plots the leiden clusters for `x_min=30000`, `x_max=40000`, `y_min=30000`, `y_max=40000`. Submit to the HPC using a slurm script.
 - Create a Python script that plots the expression level of the gene `Alas2` in the region `x_min=30000`, `x_max=40000`, `y_min=30000`, `y_max=40000`. Submit to the HPC using a slurm script.
-- Create a Python script that only does leiden clustering and visualization of the leiden clusters. Modify the parameters of `sp.tb.leiden`.
+- Create a Python script that only does leiden clustering and visualization of the leiden clusters. Modify the parameters of `hp.tb.leiden`.
 - Create a notebook that does leiden clustering, and visualizes the leiden clusters. Run the notebook. Please make sure not to run the notebook on one of the login nodes of the HPC.
 
 ## Moving data to the VSC using Globus

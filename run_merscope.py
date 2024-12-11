@@ -5,12 +5,12 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import scanpy as sc
-import sparrow as sp
+import harpy as hp
 import torch
 from cellpose import models
-from sparrow.image import cellpose_callable
-from sparrow.image._image import _get_spatial_element
-from sparrow.utils.pylogger import get_pylogger
+from harpy.image import cellpose_callable
+from harpy.image._image import _get_spatial_element
+from harpy.utils.pylogger import get_pylogger
 
 log = get_pylogger(__name__)
 
@@ -32,7 +32,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
         else os.path.join(output_dir, "sdata_merscope_full.zarr")
     )
 
-    sdata = sp.io.merscope(
+    sdata = hp.io.merscope(
         path=input_dir,
         to_coordinate_system="global",
         z_layers=[
@@ -56,14 +56,14 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
     log.info("Start cleaning.")
     start = time.time()
 
-    sdata = sp.im.min_max_filtering(
+    sdata = hp.im.min_max_filtering(
         sdata,
         img_layer="mouse_Liver1Slice1_z3_global",
         output_layer="min_max_filtered",
         size_min_max_filter=[85, 135],
         overwrite=True,
     )
-    sdata = sp.im.enhance_contrast(
+    sdata = hp.im.enhance_contrast(
         sdata,
         img_layer="min_max_filtered",
         output_layer="clahe",
@@ -91,7 +91,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     start = time.time()
 
-    sdata = sp.im.segment(
+    sdata = hp.im.segment(
         sdata,
         img_layer=img_layer,
         chunks=2048,
@@ -117,7 +117,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
     end = time.time()
     log.info(f"Segmentation took {end-start}")
 
-    sp.pl.plot_shapes(
+    hp.pl.plot_shapes(
         sdata,
         shapes_layer="segmentation_mask_boundaries",
         img_layer=[img_layer],
@@ -128,7 +128,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     log.info("Start allocation.")
 
-    sdata = sp.tb.allocate(
+    sdata = hp.tb.allocate(
         sdata=sdata,
         labels_layer="segmentation_mask",
         points_layer="transcripts_global",
@@ -139,7 +139,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     log.info("End allocation.")
 
-    sp.pl.plot_shapes(
+    hp.pl.plot_shapes(
         sdata,
         img_layer="clahe",
         shapes_layer="segmentation_mask_boundaries",
@@ -152,7 +152,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     log.info("Start analyse genes left out.")
 
-    _ = sp.pl.analyse_genes_left_out(
+    _ = hp.pl.analyse_genes_left_out(
         sdata,
         labels_layer="segmentation_mask",
         table_layer="table_transcriptomics",
@@ -165,7 +165,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
     log.info("Start preprocess.")
 
     # Perform preprocessing.
-    sdata = sp.tb.preprocess_transcriptomics(
+    sdata = hp.tb.preprocess_transcriptomics(
         sdata,
         labels_layer="segmentation_mask",
         table_layer="table_transcriptomics",
@@ -180,7 +180,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     log.info("End preprocess.")
 
-    sp.pl.preprocess_transcriptomics(
+    hp.pl.preprocess_transcriptomics(
         sdata,
         table_layer="table_transcriptomics_preprocessed",
         output=os.path.join(output_dir, "preprocess"),
@@ -188,7 +188,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     log.info("Start filtering on size.")
 
-    sdata = sp.tb.filter_on_size(
+    sdata = hp.tb.filter_on_size(
         sdata,
         labels_layer="segmentation_mask",
         table_layer="table_transcriptomics_preprocessed",
@@ -203,7 +203,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     log.info("Start leiden clustering.")
 
-    sdata = sp.tb.leiden(
+    sdata = hp.tb.leiden(
         sdata,
         labels_layer="segmentation_mask",
         table_layer="table_transcriptomics_filter",
@@ -237,7 +237,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
     )
     plt.close()
 
-    sp.pl.plot_shapes(
+    hp.pl.plot_shapes(
         sdata,
         img_layer="clahe",
         table_layer="table_transcriptomics_clustered",

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import scanpy as sc
-import sparrow as sp
+import harpy as hp
 from spatialdata import read_zarr
 
 
@@ -20,7 +20,7 @@ def main(sdata_path: str | Path, output_dir: str | Path):
     )
     plt.close()
 
-    sp.pl.plot_shapes(
+    hp.pl.plot_shapes(
         sdata,
         img_layer="clahe",
         table_layer="table_transcriptomics_clustered",
@@ -33,7 +33,7 @@ def main(sdata_path: str | Path, output_dir: str | Path):
         output=os.path.join(output_dir, "leiden_test"),
     )
 
-    sp.pl.plot_shapes(
+    hp.pl.plot_shapes(
         sdata,
         img_layer="clahe",
         table_layer="table_transcriptomics_clustered",

@@ -1,9 +1,9 @@
 import os
 import tempfile
 
-import sparrow as sp
+import harpy as hp
 
-sdata = sp.datasets.resolve_example()
+sdata = hp.datasets.resolve_example()
 
 OUTPUT_DIR = tempfile.tempdir
 
