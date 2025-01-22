@@ -95,3 +95,19 @@ def test_notebooks_explore_sdata(notebook):
     root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
 
     run_notebook(os.path.join(root, "", notebook))
+
+
+@pytest.mark.skipif(
+    not importlib.util.find_spec("instanseg"),
+    reason="requires the 'instanseg' library",
+)
+@pytest.mark.parametrize(
+    "notebook",
+    [
+        "7.xenium_instanseg.ipynb",
+    ],
+)
+def test_notebooks_xenium_instanseg(notebook):
+    root = str(pyrootutils.setup_root(os.getcwd(), dotenv=True, pythonpath=True))
+
+    run_notebook(os.path.join(root, "", notebook))
