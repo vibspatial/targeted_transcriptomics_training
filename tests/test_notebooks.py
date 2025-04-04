@@ -105,6 +105,7 @@ def test_notebooks_explore_sdata(notebook):
     "notebook",
     [
         "7.xenium_instanseg.ipynb",
+        "8.proteomics_segmentation.ipynb",
     ],
 )
 def test_notebooks_xenium_instanseg(notebook):
