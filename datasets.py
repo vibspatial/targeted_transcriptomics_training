@@ -7,6 +7,8 @@ import pooch
 from pooch import Pooch
 from harpy import __version__
 from spatialdata import SpatialData, read_zarr
+from spatialdata.models import Image2DModel
+from harpy.datasets.registry import get_ome_registry
 
 BASE_URL = "https://objectstor.vib.be/spatial-hackathon-public/sparrow/public_datasets"
 
@@ -66,4 +68,25 @@ def sdata_xenium(path: str | Path = None, output: str | Path = None) -> SpatialD
     if output is not None:
         sdata.write(output)
         sdata = read_zarr(output)
+    return sdata
+
+
+def sdata_vectra(path: str | Path = None, output: str | Path = None) -> SpatialData:
+    from harpy.datasets.proteomics import read_tifffile
+
+    registry = get_ome_registry(path)
+    path = registry.fetch(
+        "Vectra-QPTIFF/perkinelmer/PKI_fields/LuCa-7color_%5b13860,52919%5d_1x1component_data.tif"
+    )
+
+    input_data, physical_pixel_size_x, physical_pixel_size_y = read_tifffile(path)
+    assert physical_pixel_size_x == physical_pixel_size_y
+    # TODO use pixel metadata to set the pixel size
+    sdata = SpatialData(images={"image": Image2DModel.parse(input_data, dims="cyx")})
+    sdata.path = None
+
+    if output is not None:
+        sdata.write(output)
+        sdata = read_zarr(output)
+
     return sdata
