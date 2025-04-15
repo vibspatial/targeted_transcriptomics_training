@@ -16,7 +16,7 @@ git clone https://github.com/vibspatial/targeted_transcriptomics_training
 cd targeted_transcriptomics_training
 ```
 
-## Optional: build conda environment on the VSC
+## Build conda environment on the VSC
 
 ### 1. Install miniconda in `$VSC_DATA` or `$VSC_DATA_VO_USER` if a `VO` is available:
 
@@ -44,7 +44,7 @@ Change the `PATH_CONDA_ENV` parameter in the script `build_conda_slurm.sh` to th
 sbatch build_conda_slurm.sh
 ```
 
-## Use the (prebuild) conda environment and submit jobs
+## Use the (prebuild) conda environment
 
 ### 1. Test the conda environment
 
@@ -53,7 +53,7 @@ Start an interactive session:
 srun --account=lp_edu_ont2024 --clusters=genius --partition=interactive --ntasks 1 --cpus-per-task 8 --mem=16G --time=00:30:00 --pty bash
 ```
 
-Now activate the conda environment (no need to have a conda installation, we will use the conda installation from the VSC to activate our environment):
+Now activate the conda environment (we use the conda installation from the VSC to activate our environment):
 
 ```
 source /apps/leuven/rocky8/skylake/2021a/software/Miniconda3/4.12.0/bin/activate $PATH_CONDA_ENV
@@ -77,13 +77,60 @@ and then in the python shell:
 import harpy
 ```
 
-### 2. Submit jobs
+### 2. Use VS Code on the VSC
 
-Go to the login nodes if you are still in an interactive session (you can check if you are on the login nodes by typing in the command line `hostname`):
+Make sure to install miniconda to be able to use the prebuild conda environment in a VS Code session:
 
 ```
-exit
+cd $VSC_DATA
+mkdir -p miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
+bash miniconda3/miniconda.sh -b -u -p miniconda3
+rm -rf miniconda3/miniconda.sh
+miniconda3/bin/conda init bash
 ```
+
+Make a symlink to the (prebuild) conda environment (only necessary if conda environment is not located at `$VSC_DATA/miniconda3/envs`).
+
+```
+cd $VSC_DATA/miniconda3/envs
+ln -s /staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env
+```
+
+After launching VS Code (see below), please make sure to install the Python and Jupyter extensions, otherwise VS Code will not be able to find the Python environments.
+
+If kernel can not be found try disabling and enabling the jupyter vs code extension.
+
+### VSC KU Leuven
+
+Go to [Open OnDemand](https://ondemand.hpc.kuleuven.be)
+
+Choose Visual Studio Code.
+
+Make sure to change the number of hours, and set the number of processes per node to 8.
+
+Select `Launch` and then connect.
+
+Select the kernel when you want to run Jupyter Notebooks, e.g. `/staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env`.
+
+### VSC Ugent
+
+Work with a VS Code tunnel.
+
+Follow instruction [here](https://docs.hpc.ugent.be/Linux/vscodetunnel/)
+
+### VIB Compute
+
+Work with a VS code tunnel.
+
+Follow instructions [here](https://docs.datacore.vib.be/compute-cluster/entrypoints/command-line-access/#connect-using-a-visual-studio-code-tunnel)
+
+Or via [Open OnDemand](https://docs.datacore.vib.be/compute-cluster/entrypoints/open-on-demand/vs-code-web-server).
+
+
+### 3. Submit jobs
+
+Go to the login nodes (you can check if you are on the login nodes by typing in the command line `hostname`):
 
 In the Slurm script `run_slurm.sh`, change the `output_dir` argument in the `python run_merscope.py` command to specify your desired output directory. The resulting `SpatialData` `.zarr` store and some figures will be saved there.
 
@@ -148,55 +195,6 @@ For the following excercises, use the `SpatialData` `.zarr` store obtained using
 ## Moving data to the VSC using Globus
 
 See [here](globus/globus.ipynb) for a tutorial on how to move data to and from the VSC using Globus.
-
-
-## Use VS Code on the VSC
-
-Make sure to install miniconda to be able to use the prebuild conda environment in a VS Code session:
-
-```
-cd $VSC_DATA
-mkdir -p miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
-bash miniconda3/miniconda.sh -b -u -p miniconda3
-rm -rf miniconda3/miniconda.sh
-miniconda3/bin/conda init bash
-```
-
-Make a symlink to the prebuild conda environment.
-
-```
-cd $VSC_DATA/miniconda3/envs
-ln -s /staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env
-```
-
-After launching VS Code (see below), please make sure to install the Python and Jupyter extensions, otherwise VS Code will not be able to find the Python environments.
-
-### VSC KU Leuven
-
-Go to [Open OnDemand](https://ondemand.hpc.kuleuven.be)
-
-Choose Visual Studio Code.
-
-Make sure to change the number of hours, and set the number of processes per node to 8.
-
-Select `Launch` and then connect.
-
-Select the kernel when you want to run Jupyter Notebooks, e.g. `/staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env`.
-
-### VSC Ugent
-
-Work with a VS Code tunnel.
-
-Follow instruction [here](https://docs.hpc.ugent.be/Linux/vscodetunnel/)
-
-### VIB Compute
-
-Work with a VS code tunnel.
-
-Follow instructions [here](https://docs.datacore.vib.be/compute-cluster/entrypoints/command-line-access/#connect-using-a-visual-studio-code-tunnel)
-
-Or via [Open OnDemand](https://docs.datacore.vib.be/compute-cluster/entrypoints/open-on-demand/vs-code-web-server).
 
 
 ## Connect to a remote Cluster with VS Code Remote - SSH
