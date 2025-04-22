@@ -11,6 +11,10 @@ dependencies:
       - torch
       - cellpose
       - rioxarray
+      - squidpy
+      - spatialdata
+      - spatialdata-plot
+      - bokeh
       - ipython
       - ipykernel
 

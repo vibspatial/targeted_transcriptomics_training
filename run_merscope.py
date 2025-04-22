@@ -8,6 +8,7 @@ import scanpy as sc
 import harpy as hp
 import torch
 from cellpose import models
+from spatialdata.transformations import get_transformation
 from harpy.image import cellpose_callable
 from harpy.image._image import _get_spatial_element
 from harpy.utils.pylogger import get_pylogger
@@ -15,7 +16,7 @@ from harpy.utils.pylogger import get_pylogger
 log = get_pylogger(__name__)
 
 
-def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
+def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True, num_workers: int = 8):
     log.info("Start analysis.")
 
     log.info(f"input_dir: {input_dir}")
@@ -25,6 +26,8 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     log.info(f"Cuda available: {torch.cuda.is_available()}")
     log.info("Start creating sdata.")
+
+    os.makedirs(output_dir, exist_ok=True)
 
     output = (
         os.path.join(output_dir, "sdata_merscope_crop.zarr")
@@ -60,6 +63,7 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
         sdata,
         img_layer="mouse_Liver1Slice1_z3_global",
         output_layer="min_max_filtered",
+        crd=[20000, 40000, 20000, 40000] if crop else None,
         size_min_max_filter=[85, 135],
         overwrite=True,
     )
@@ -81,9 +85,16 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
     gpu = True if torch.cuda.is_available() else False
     log.info(f"Running segmentation on GPU: {gpu}.")
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = models.CellposeModel(
-        gpu=gpu, pretrained_model="cyto3", device=torch.device(device)
-    )
+
+    # rechunk on disk
+    sdata = hp.im.add_image_layer(
+        sdata,
+        arr =sdata[ img_layer ].data.rechunk( 2048 ),
+        transformations=get_transformation( sdata[ img_layer ], get_all=True ),
+        output_layer = img_layer,
+        c_coords=sdata[ img_layer ].c.data,
+        overwrite=True,
+        )
 
     se = _get_spatial_element(sdata, layer=img_layer)
 
@@ -91,14 +102,26 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
 
     start = time.time()
 
+    from dask.distributed import Client, LocalCluster
+
+    cluster = LocalCluster(
+        n_workers=num_workers,
+        threads_per_worker=1,
+        memory_limit="32GB",
+    )
+
+    client = Client(cluster)
+
+    log.info(client.dashboard_link)
+
     sdata = hp.im.segment(
         sdata,
         img_layer=img_layer,
-        chunks=2048,
         depth=200,
         model=cellpose_callable,
         # parameters that will be passed to the callable _cellpose
-        pretrained_model=model,
+        pretrained_model="cyto3",
+        device=device,
         diameter=100,
         flow_threshold=0.85,
         cellprob_threshold=-4,
@@ -108,9 +131,6 @@ def main(input_dir: str | Path, output_dir: str | Path, crop: bool = True):
         ],
         output_labels_layer="segmentation_mask",
         output_shapes_layer="segmentation_mask_boundaries",
-        crd=[20000, 40000, 20000, 40000]
-        if crop
-        else None,  # region to segment [x_min, xmax, y_min, y_max],
         overwrite=True,
     )
 
@@ -264,9 +284,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output_dir", type=str, help="Output directory", required=True
     )
+    # New integer argument
+    parser.add_argument(
+        "--num_workers", type=int, help="Number of workers.", required=False
+    )
     parser.add_argument("--crop", action="store_true", help="Run on a crop.")
 
     # Parse arguments
     args = parser.parse_args()
 
-    main(input_dir=args.input_dir, output_dir=args.output_dir, crop=args.crop)
+    main(input_dir=args.input_dir, output_dir=args.output_dir, crop=args.crop, num_workers=args.num_workers)
