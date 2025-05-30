@@ -20,7 +20,8 @@
 # conda install -n base conda-libmamba-solver
 # conda config --set solver libmamba
 
-PATH_CONDA_ENV="/staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env_14_4_25" # pick a path, this can be changed
+#PATH_CONDA_ENV="/staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env_14_4_25" # pick a path, this can be changed
+PATH_CONDA_ENV="/staging/leuven/stg_00143/spatial_data_training/conda_environments/spatial_data_training_env_30_5_25" # pick a path, this can be changed
 
 source $VSC_DATA_VO_USER/miniconda3/bin/activate
 
@@ -31,6 +32,7 @@ source $VSC_DATA_VO_USER/miniconda3/bin/activate $PATH_CONDA_ENV
 
 export PIP_NO_CACHE_DIR=off
 pip install git+https://github.com/saeyslab/harpy.git@main#egg=harpy-analysis[test,basic,opencv,clustering,cellpose,instanseg]
+pip install cellpose==3.1.1.2 
 
 # Optional: run a test script, to check if everything installed correctly
 python run_test.py
