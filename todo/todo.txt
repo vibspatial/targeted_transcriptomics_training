@@ -20,8 +20,8 @@
 
 -**Day 3 (9h30-17h):**
   - Introduction presentation (20 min; 9h30-9h50) - Frank
-  - 8.proteomics_segmentation.ipynb - Frank
-  - 12.proteomics_macsima.ipynb - Frank en Julien
+  - 6.proteomics_segmentation.ipynb - Frank
+  - 7.proteomics_macsima.ipynb - Frank en Julien
       - MACS IQ View
       - Qupath
       - Ilastik
