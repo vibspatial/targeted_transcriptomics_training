@@ -1,46 +1,27 @@
-- **Dag 1 (9h30-17h):**
-  - Korte presentatie als inleiding (<30 min; 9h30-10h)
-    - Targeted transcriptomics
-      - Hoe wordt data gegenereerd? ✓ Julien
-      - Ruwe data ✓
-  -  Download data. 0.get_data.ipynb. To be tested on windows.
-      - Checken of installaties correct zijn (op voorhand documentatie voor installatie sturen)
+- **Day 1 (9h30-17h):**
+  - Introduction presentation (20 min; 9h30-9h50) - Julien
+  - 0.get_data.ipynb (10 min; 9h50-10h) - Frank
+      - Download data
+      - Check harpy installations
+  - 1.explore_sdata.ipynb (1h; 10h-11h) - Frank
+  - 2.sparrow_pipeline.ipynb - Frank tot voor allocatie, Julien vanaf allocatie
+      - part 1 (1h; 11h-12h)
+      - part 2 (2h; 13h-15h)
+      - part 3 (1h45; 15h15-17h)
 
-  - Introductie notebook (1h; 10h-12h) # 5.explore_sdata.ipynb Arne( images/labels) Frank( shapes/tables/points )
-    - Oefening: voorbereid sdata (points layer, table, layer, img layer, etc.) inlezen + een aantal plots maken. ✓
-    - Terugkoppelen naar introductie Janick. Tonen wat onderliggende data is (numpy arrays, dataframes, gdf, Anndata...) ✓
+- **Day 2 (9h30-17h):**
+  - HPC (9h30-11h30) - Frank
+      - 5.sparrow_pipeline_merscope.ipynb
+      - SLURM job
+  - TissUUmaps + 3.scimap.ipynb (1h; 11h30-12h30) - Julien
+  - BigWarp + 4.sparrow_pipeline_xenium.ipynb (13h30-15h) - Julien
+      - Xenium Explorer
+  - AnndataR?
 
-  - Lever resolve notebook, deel 1 (13h-16h) 1.sparrow_pipeline.ipynb ✓ Frank/Julien vanaf de table
-    - Pipeline stappen worden uitgelegd + basic (en optionele advanced) oefeningen en vragen. ✓
-    - basic oefeningen toevoegen, parameters/crops/plots... ✓
-    - Interactieve plots in Napari
-      - Basic: Output bekijken, Segmentatie fine-tunen, segmentatie met en zonder cleaning stappen, ander cropje testen
-      - Advanced: Custom preprocessing stappen (image * 2, layer toevoegen aan sdata, ...) ✓
-    - Downstream with squidpy, ... etc TODO Julien
-
-- **Dag 2 (9h30-17h):**
-
-  - Xenium data ( 9h30-10h30) 2.sparrow_pipeline_xenium.ipynb Frank
-    - oefeningen toevoegen 
-    - Bekijk ruwe data ✓
-    - Bekijk data in Xenium Explorer ✓
-    - Notebook maken om data in te lezen (test spatialdata io) + resolve notebook aanpassen voor xeniumdata ✓
-
-  - Xenium explorer (11-12h) 3.xenium_explorer.ipynb Arne
-    - tissuumaps Julien
-    - xenium explorer installatie
-    - hands on
-
-  - Merscope (13h-15h) - 4.sparrow_pipeline_merscope.ipynb
-    - remove VScode TODO
-    - notebook show. Julien.
-    - HPC. Test: Frank. TODO
-    - HPC: Arne
-    - oefening scp ...
-    - excerise ploting.
-    - (moeilijke) exercise, leiden cluster, parameters aanpassen.
-
-  Bonus
-  - Anndata to r
-  - Bigwarp
-  - Advanced spatialdata/coordinate systems
+-**Day 3 (9h30-17h):**
+  - Introduction presentation (20 min; 9h30-9h50) - Frank
+  - 8.proteomics_segmentation.ipynb - Frank
+  - 12.proteomics_macsima.ipynb - Frank en Julien
+      - MACS IQ View
+      - Qupath
+      - Ilastik
