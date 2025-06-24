@@ -65,8 +65,6 @@ The data for the notebook is downloaded and available on the HPC already. Instea
 registry = get_registry(path = "/staging/leuven/stg_00143/spatial_data_training/merscope")
 ```
 
-TODO: check that the data there is correct!
-
 # Visual Studio Code on the HPC
 
 Via https://ondemand.hpc.kuleuven.be/ start Visual Studio Code with the following resources:
