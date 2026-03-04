@@ -2,12 +2,11 @@ import argparse
 import os
 from pathlib import Path
 
+import harpy as hp
 import matplotlib.pyplot as plt
 import scanpy as sc
-import harpy as hp
-from spatialdata import read_zarr
-
 from harpy.utils.pylogger import get_pylogger
+from spatialdata import read_zarr
 
 log = get_pylogger(__name__)
 
