@@ -1,9 +1,10 @@
-from spatialdata import SpatialData
-from harpy.utils._keys import _GENES_KEY
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+from harpy.utils._keys import _GENES_KEY
 from scipy.ndimage import gaussian_filter
+from spatialdata import SpatialData
+
 
 def plot_density(
     sdata: SpatialData,
@@ -41,20 +42,25 @@ def plot_density(
     crd
         The coordinates for a region of interest in the format `(xmin, xmax, ymin, ymax)`.
     """
-    
+
     if bin_size is None:
         raise ValueError("`bin_size` must be specified.")
 
-    if (points_layer is None and table_layer is None) or (points_layer is not None and table_layer is not None):
+    if (points_layer is None and table_layer is None) or (
+        points_layer is not None and table_layer is not None
+    ):
         raise ValueError("Specify exactly one of `points_layer` or `table_layer`.")
 
     # Load transcripts
     if points_layer is not None:
+        # TODO we should first subset the genes and then run compute
         df = sdata.points[points_layer].compute()
-    
+
         if genes is not None:
             if name_gene_column is None:
-                raise ValueError("name_gene_column must be provided if filtering genes.")
+                raise ValueError(
+                    "name_gene_column must be provided if filtering genes."
+                )
 
             if isinstance(genes, str):
                 genes = [genes]
@@ -63,22 +69,24 @@ def plot_density(
 
             if df.empty:
                 raise ValueError("No transcripts found for specified gene(s).")
-        
+
         label = "Transcript Count"
         title = "Transcript Density"
-        
-    elif table_layer is not None:    
+
+    elif table_layer is not None:
         coords = sdata.tables[table_layer].obsm["spatial"]
         df = pd.DataFrame(coords, columns=["x", "y"])
-        
+
         label = "Cell Count"
         title = "Cell Density"
-        
+
     if crd is not None:
         xmin, xmax, ymin, ymax = crd
         df = df[
-            (df["x"] >= xmin) & (df["x"] <= xmax) &
-            (df["y"] >= ymin) & (df["y"] <= ymax)
+            (df["x"] >= xmin)
+            & (df["x"] <= xmax)
+            & (df["y"] >= ymin)
+            & (df["y"] <= ymax)
         ]
         if df.empty:
             raise ValueError("No data found in specified region.")
@@ -92,7 +100,7 @@ def plot_density(
     # Create 2D histogram
     x_edges = np.arange(xmin, xmax + bin_size, bin_size)
     y_edges = np.arange(ymin, ymax + bin_size, bin_size)
-        
+
     heatmap, xedges, yedges = np.histogram2d(x, y, bins=[x_edges, y_edges])
 
     if smooth_sigma is not None:

@@ -1,10 +1,15 @@
 import numpy as np
 import pandas as pd
+from harpy.table._table import add_table_layer
+from harpy.utils._keys import _REGION_KEY
 from sklearn.cluster import KMeans
 from spatialdata import SpatialData
 
-from harpy.table._table import add_table_layer
-from harpy.utils._keys import _REGION_KEY
+
+def _to_fixed_unicode_array(values: list[str]) -> np.ndarray:
+    """Return a fixed-width unicode numpy array to avoid StringDType in .uns."""
+    max_len = max((len(v) for v in values), default=1)
+    return np.asarray(values, dtype=f"U{max_len}")
 
 
 def nhood_count(
@@ -66,8 +71,8 @@ def nhood_count(
     # Add results to adata.uns
     dict_uns = {
         "cell_type_column": cell_type_column,
-        "rows": adata.obs_names.to_list(),
-        "columns": cell_types.cat.categories.to_list(),
+        # "rows": _to_fixed_unicode_array(adata.obs_names.to_list()),
+        # "columns": _to_fixed_unicode_array(cell_types.cat.categories.to_list()),
         "counts": counts.toarray(),
         "fractions": frac,
     }
@@ -130,7 +135,9 @@ def nhood_kmeans(
 
     # Check uns key
     if nhood_counts_key not in adata.uns:
-        raise KeyError(f"`{nhood_counts_key}` not found in `adata.uns`. Run `nhood_count` first or check your keys.")
+        raise KeyError(
+            f"`{nhood_counts_key}` not found in `adata.uns`. Run `nhood_count` first or check your keys."
+        )
 
     # Get fractions matrix
     frac = adata.uns[nhood_counts_key]["fractions"]  # dense (N × K)
