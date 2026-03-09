@@ -3,6 +3,7 @@ uv venv .venv_harpy --python 3.12
 source .venv_harpy/bin/activate
 
 uv pip install 'harpy-analysis[extra,napari] @ git+https://github.com/saeyslab/harpy.git@main'
+uv pip install "harpy_vitessce @ git+https://github.com/vibspatial/harpy_vitessce.git@main"
 uv pip install squidpy
 uv pip install cellpose==3.1.1.3
 uv pip install jupyter
