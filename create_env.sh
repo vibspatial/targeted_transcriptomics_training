@@ -2,12 +2,4 @@
 uv venv .venv --python 3.12
 source .venv/bin/activate
 
-uv pip install 'harpy-analysis[extra,napari] @ git+https://github.com/saeyslab/harpy.git@main'
-uv pip install "harpy_vitessce @ git+https://github.com/vibspatial/harpy_vitessce.git@main"
-uv pip install squidpy
-uv pip install cellpose==3.1.1.3
-uv pip install jupyter
-uv pip install mofax
-uv pip install mofapy2
-uv pip install bokeh
-
+uv pip install -r requirements.txt
