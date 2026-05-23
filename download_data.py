@@ -3,7 +3,6 @@ import argparse
 from harpy.datasets.registry import get_registry
 from loguru import logger
 
-
 DATASETS = [
     "transcriptomics/xenium/Xenium_human_ovarian_cancer/training_march_2026/tumor.geojson",  # Region annotation from Qupath
     "transcriptomics/xenium/Xenium_human_ovarian_cancer/training_march_2026/necrosis.geojson",  # Region annotation from Qupath
@@ -14,7 +13,9 @@ DATASETS = [
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Download data for the targeted transcriptomics training notebooks.")
+    parser = argparse.ArgumentParser(
+        description="Download data for the targeted transcriptomics training notebooks."
+    )
     parser.add_argument(
         "--cache_dir_path",
         "--cache-dir-path",
@@ -31,6 +32,9 @@ def main() -> None:
     for item in DATASETS:
         logger.info(f"Fetching {item}.")
         registry.fetch(item)
+
+    # _ = hp.datasets.xenium_human_ovarian_cancer( training = "checkpoint_1", )
+    # _ = hp.datasets.xenium_human_ovarian_cancer( training = "checkpoint_2", )
 
 
 if __name__ == "__main__":
