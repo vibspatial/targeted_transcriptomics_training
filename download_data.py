@@ -1,5 +1,6 @@
 import argparse
 
+import harpy as hp
 from harpy.datasets.registry import get_registry
 from loguru import logger
 
@@ -33,8 +34,14 @@ def main() -> None:
         logger.info(f"Fetching {item}.")
         registry.fetch(item)
 
-    # _ = hp.datasets.xenium_human_ovarian_cancer( training = "checkpoint_1", )
-    # _ = hp.datasets.xenium_human_ovarian_cancer( training = "checkpoint_2", )
+    logger.info("Fetching Xenium ovarian cancer checkpoint_1.")
+    _ = hp.datasets.xenium_human_ovarian_cancer(
+        training="checkpoint_1",
+    )
+    logger.info("Fetching Xenium ovarian cancer checkpoint_2.")
+    _ = hp.datasets.xenium_human_ovarian_cancer(
+        training="checkpoint_2",
+    )
 
 
 if __name__ == "__main__":
