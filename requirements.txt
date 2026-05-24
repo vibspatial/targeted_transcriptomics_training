@@ -2,6 +2,7 @@
 harpy-analysis[extra,napari] @ git+https://github.com/saeyslab/harpy.git@main # make sure to be on harpy-analysis >= 0.4.1
 harpy_vitessce @ git+https://github.com/vibspatial/harpy_vitessce.git@main
 napari-harpy @ git+https://github.com/vibspatial/napari-harpy.git@main
+instanseg-torch @ "git+https://github.com/instanseg/instanseg.git@main"
 spatialdata==0.7.2
 squidpy
 cellpose==3.1.1.3
