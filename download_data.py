@@ -37,10 +37,16 @@ def main() -> None:
     logger.info("Fetching Xenium ovarian cancer checkpoint_1.")
     _ = hp.datasets.xenium_human_ovarian_cancer(
         training="checkpoint_1",
+        path=args.cache_dir_path,
     )
     logger.info("Fetching Xenium ovarian cancer checkpoint_2.")
     _ = hp.datasets.xenium_human_ovarian_cancer(
-        training="checkpoint_2",
+        training="checkpoint_2", path=args.cache_dir_path
+    )
+
+    logger.info("Fetching VectraPolaris data.")
+    _ = hp.datasets.vectra_example(
+        path=args.cache_dir_path,
     )
 
 
