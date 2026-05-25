@@ -2,6 +2,7 @@ import argparse
 
 import harpy as hp
 from harpy.datasets.registry import get_registry
+from instanseg import InstanSeg
 from loguru import logger
 
 DATASETS = [
@@ -48,6 +49,9 @@ def main() -> None:
     _ = hp.datasets.vectra_example(
         path=args.cache_dir_path,
     )
+
+    logger.info("Fetching Instanseg model.")
+    _ = InstanSeg("fluorescence_nuclei_and_cells", verbosity=1, device="cpu")
 
 
 if __name__ == "__main__":
