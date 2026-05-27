@@ -1,6 +1,7 @@
 import argparse
 
 import harpy as hp
+from cellpose import models
 from harpy.datasets.registry import get_registry
 from instanseg import InstanSeg
 from loguru import logger
@@ -50,8 +51,23 @@ def main() -> None:
         path=args.cache_dir_path,
     )
 
+    logger.info("Fetching MACSima data.")
+
+    _ = hp.datasets.macsima_colorectal_carcinoma_course(
+        checkpoint="checkpoint_1",
+        path=args.cache_dir_path,
+    )
+
+    _ = hp.datasets.macsima_colorectal_carcinoma_course(
+        checkpoint="checkpoint_2",
+        path=args.cache_dir_path,
+    )
+
     logger.info("Fetching Instanseg model.")
     _ = InstanSeg("fluorescence_nuclei_and_cells", verbosity=1, device="cpu")
+
+    _ = models.CellposeModel(model_type="cyto3")
+    _ = models.CellposeModel(model_type="nuclei")
 
 
 if __name__ == "__main__":
