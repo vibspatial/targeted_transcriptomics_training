@@ -35,7 +35,7 @@ dependencies = [
     # stack works with NumPy 2.4.x, which avoids StringDType plotting crashes.
     "numpy>=2.4.6",
     "numba>=0.64",
-    "harpy-analysis[extra,napari] @ git+https://github.com/saeyslab/harpy.git@main",
+    "harpy-analysis[extra,napari]>=0.4.1",
     "harpy_vitessce @ git+https://github.com/vibspatial/harpy_vitessce.git@main",
     "napari-harpy>=0.0.7",
     "instanseg-torch @ git+https://github.com/instanseg/instanseg.git@main",

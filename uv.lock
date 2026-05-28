@@ -1157,8 +1157,8 @@ wheels = [
 
 [[package]]
 name = "harpy-analysis"
-version = "0.4.0"
-source = { git = "https://github.com/saeyslab/harpy.git?rev=main#b668edf66b0c4ecdb4922474ad2b2db1077f84b5" }
+version = "0.4.1"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "crick" },
     { name = "distributed" },
@@ -1178,6 +1178,10 @@ dependencies = [
     { name = "spatialdata-plot" },
     { name = "universal-pathlib" },
     { name = "voronoi-diagram-for-polygons" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9a/88/9df88d28487c5f26b729afdcd78ae558708cb4a2a6d33c7d681efed197f0/harpy_analysis-0.4.1.tar.gz", hash = "sha256:645158bcb4b9dd833a3b3627723ef652b5186023d6c55f2a966a22f6ef540caa", size = 21144457, upload-time = "2026-05-28T12:29:30.03Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6b/38/f1cc3c01fc0b1408e654ee11a348f50d32a0a4800f1dd3433ba6d57e0d0f/harpy_analysis-0.4.1-py3-none-any.whl", hash = "sha256:a21add909a90624081f802d6795ebdf202716819cbb6e6dfeb89e9d7bf13d558", size = 510414, upload-time = "2026-05-28T12:29:28.042Z" },
 ]
 
 [package.optional-dependencies]
@@ -4360,7 +4364,7 @@ dependencies = [
 requires-dist = [
     { name = "bokeh" },
     { name = "cellpose", specifier = "==3.1.1.3" },
-    { name = "harpy-analysis", extras = ["extra", "napari"], git = "https://github.com/saeyslab/harpy.git?rev=main" },
+    { name = "harpy-analysis", extras = ["extra", "napari"], specifier = ">=0.4.1" },
     { name = "harpy-vitessce", git = "https://github.com/vibspatial/harpy_vitessce.git?rev=main" },
     { name = "instanseg-torch", git = "https://github.com/instanseg/instanseg.git?rev=main" },
     { name = "jupyter" },
