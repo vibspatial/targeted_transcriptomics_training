@@ -1158,7 +1158,7 @@ wheels = [
 [[package]]
 name = "harpy-analysis"
 version = "0.4.0"
-source = { git = "https://github.com/saeyslab/harpy.git?rev=main#338491f07c43fa9fcadfa959e6cac8356de7993a" }
+source = { git = "https://github.com/saeyslab/harpy.git?rev=main#b668edf66b0c4ecdb4922474ad2b2db1077f84b5" }
 dependencies = [
     { name = "crick" },
     { name = "distributed" },
@@ -2313,8 +2313,8 @@ wheels = [
 
 [[package]]
 name = "napari-harpy"
-version = "0.0.6"
-source = { git = "https://github.com/vibspatial/napari-harpy.git?rev=main#df14dbb8d5b494b5e08f9408df577f51a276949f" }
+version = "0.0.7"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dask", extra = ["dataframe"] },
     { name = "harpy-analysis" },
@@ -2325,6 +2325,10 @@ dependencies = [
     { name = "napari", version = "0.7.0", source = { registry = "https://pypi.org/simple" }, extra = ["all"], marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'" },
     { name = "pandas" },
     { name = "pyarrow" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ee/e4/44820f9a71c8e5e88a363ee5c016ab16738c5c8a2f76d03e6f8b055b4f8c/napari_harpy-0.0.7.tar.gz", hash = "sha256:c343f0c88d72f41988f6597623772e3f4e52e42f9a3ab922c13927f75107a9af", size = 11441362, upload-time = "2026-05-28T10:36:30.581Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8a/33/571778bf1789934db5ed380ef4d8afe281ce05de3a4f321ff0de6161cdb5/napari_harpy-0.0.7-py3-none-any.whl", hash = "sha256:c64c6d82bc04fe9378838c13b1d73483b2a9289192a6f6ff61db38c05256bada", size = 493365, upload-time = "2026-05-28T10:36:28.107Z" },
 ]
 
 [[package]]
@@ -4362,7 +4366,7 @@ requires-dist = [
     { name = "jupyter" },
     { name = "mofapy2" },
     { name = "mofax" },
-    { name = "napari-harpy", git = "https://github.com/vibspatial/napari-harpy.git?rev=main" },
+    { name = "napari-harpy", specifier = ">=0.0.7" },
     { name = "numba", specifier = ">=0.64" },
     { name = "numpy", specifier = ">=2.4.6" },
     { name = "spatialdata", specifier = "==0.7.2" },
