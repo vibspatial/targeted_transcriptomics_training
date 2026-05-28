@@ -8,7 +8,7 @@
   <img src="img/logo-plus.svg" alt="plus" height="32">
   <br>
   <a href="https://github.com/saeyslab/harpy">
-    <img src="https://raw.githubusercontent.com/saeyslab/harpy/main/docs/_static/img/logo.png" alt="Harpy" height="170">
+    <img src="https://raw.githubusercontent.com/saeyslab/harpy/main/docs/_static/img/logo.png" alt="Harpy" height="160">
   </a>
 </p>
 
