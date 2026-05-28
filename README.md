@@ -28,6 +28,12 @@ From the repository root, run this on macOS, Linux, WSL, or Git Bash:
 bash create_env.sh
 ```
 
+On Windows PowerShell, run:
+
+```powershell
+.\create_env.ps1
+```
+
 The script creates or updates a Python 3.12 environment at:
 
 ```text
@@ -46,13 +52,6 @@ This means:
 - packages are installed from `uv.lock`
 - `uv.lock` is not modified
 - the command fails if `pyproject.toml` and `uv.lock` are out of sync
-
-On Windows PowerShell, run the equivalent commands directly:
-
-```powershell
-$env:UV_PROJECT_ENVIRONMENT = ".venv"
-uv sync --python 3.12 --locked
-```
 
 ## 3. Activate the environment
 
