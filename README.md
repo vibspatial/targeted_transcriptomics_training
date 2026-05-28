@@ -106,3 +106,9 @@ Then recreate or sync the environment with:
 ```bash
 bash create_env.sh
 ```
+
+On Windows PowerShell, use:
+
+```powershell
+.\create_env.ps1
+```
