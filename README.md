@@ -1,5 +1,19 @@
 # Spatial Omics Training
 
+<p align="center">
+  <a href="https://spatialdata.scverse.org/">
+    <img src="https://raw.githubusercontent.com/scverse/spatialdata/main/docs/_static/img/spatialdata_horizontal.png" alt="SpatialData" height="120">
+  </a>
+  <br>
+  <span style="font-size: 100px; color: #1bb5ab;"><strong>+</strong></span>
+  <br>
+  <a href="https://github.com/saeyslab/harpy">
+    <img src="https://raw.githubusercontent.com/saeyslab/harpy/main/docs/_static/img/logo.png" alt="Harpy" height="170">
+  </a>
+</p>
+
+<br>
+
 This repository contains course material for the [Spatial Omics Summer School](https://www.vibconferences.be/events/spatial-omics-summer-school). The notebooks guide participants through working with [`SpatialData`](https://spatialdata.scverse.org/) objects, targeted transcriptomics data and spatial proteomics data.
 
 The tutorials use [Harpy](https://github.com/saeyslab/harpy) for spatial omics analysis workflows and [napari-harpy](https://github.com/vibspatial/napari-harpy) for interactive inspection and visualization in napari.
