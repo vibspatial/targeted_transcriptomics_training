@@ -1,5 +1,4 @@
-# cellpose==3.1.1.3 pulls in numpy==2.0.2 on macOS, which does not build on Python 3.13.
-uv venv .venv --python 3.12
+# Use uv sync so pyproject.toml, including [tool.uv] dependency overrides, is
+# the single source of truth for the environment.
+UV_PROJECT_ENVIRONMENT=.venv uv sync --python 3.12
 source .venv/bin/activate
-
-uv pip install -r requirements.txt
