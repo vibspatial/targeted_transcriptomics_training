@@ -96,7 +96,29 @@ On Windows Git Bash:
 source .venv/Scripts/activate
 ```
 
-## 5. Use the environment in VS Code
+## 5. Download the course data
+
+After activating the environment, download the datasets and model weights used in the notebooks:
+
+```bash
+python download_data.py
+```
+
+This downloads the course data into the default Harpy data cache for your operating system. It also downloads the InstanSeg model and the Cellpose `cyto3` and `nuclei` models.
+
+To use a custom cache directory, pass `--cache-dir-path`:
+
+```bash
+python download_data.py --cache-dir-path /path/to/data/cache
+```
+
+On Windows PowerShell, for example:
+
+```powershell
+python download_data.py --cache-dir-path C:\Users\YourName\spatial_omics_data
+```
+
+## 6. Use the environment in VS Code
 
 Open this repository in VS Code.
 
