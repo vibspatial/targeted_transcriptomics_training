@@ -37,7 +37,7 @@ dependencies = [
     "numba>=0.64",
     "harpy-analysis[extra,napari] @ git+https://github.com/saeyslab/harpy.git@main",
     "harpy_vitessce @ git+https://github.com/vibspatial/harpy_vitessce.git@main",
-    "napari-harpy @ git+https://github.com/vibspatial/napari-harpy.git@main",
+    "napari-harpy>=0.0.7",
     "instanseg-torch @ git+https://github.com/instanseg/instanseg.git@main",
     "spatialdata==0.7.2",
     "zarr>=3.2.1",
