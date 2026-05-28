@@ -2,7 +2,7 @@
 
 This repository contains course material for the [Spatial Omics Summer School](https://www.vibconferences.be/events/spatial-omics-summer-school). The notebooks guide participants through working with [`SpatialData`](https://spatialdata.scverse.org/) objects, targeted transcriptomics data and spatial proteomics data.
 
-The turorials use [Harpy](https://github.com/saeyslab/harpy) for spatial omics analysis workflows and [napari-harpy](https://github.com/vibspatial/napari-harpy) for interactive inspection and visualization in napari.
+The tutorials use [Harpy](https://github.com/saeyslab/harpy) for spatial omics analysis workflows and [napari-harpy](https://github.com/vibspatial/napari-harpy) for interactive inspection and visualization in napari.
 
 # Installation
 
@@ -10,7 +10,16 @@ This project uses [`uv`](https://docs.astral.sh/uv/) to manage the Python enviro
 
 Dependencies are defined in `pyproject.toml` and locked in `uv.lock`. Use the lockfile for the course environment so everyone gets the same package versions.
 
-## 1. Install uv
+## 1. Get the repository
+
+Clone this repository and move into the project directory:
+
+```bash
+git clone https://github.com/vibspatial/targeted_transcriptomics_training.git
+cd targeted_transcriptomics_training
+```
+
+## 2. Install uv
 
 Make sure `uv` is installed and available on your `PATH`.
 
@@ -20,7 +29,7 @@ Check with:
 uv --version
 ```
 
-## 2. Create the environment
+## 3. Create the environment
 
 From the repository root, run this on macOS, Linux, WSL, or Git Bash:
 
@@ -53,7 +62,7 @@ This means:
 - `uv.lock` is not modified
 - the command fails if `pyproject.toml` and `uv.lock` are out of sync
 
-## 3. Activate the environment
+## 4. Activate the environment
 
 On macOS, Linux, or WSL:
 
@@ -73,7 +82,7 @@ On Windows Git Bash:
 source .venv/Scripts/activate
 ```
 
-## 4. Use the environment in VS Code
+## 5. Use the environment in VS Code
 
 Open this repository in VS Code.
 
