@@ -5,7 +5,7 @@
     <img src="https://raw.githubusercontent.com/scverse/spatialdata/main/docs/_static/img/spatialdata_horizontal.png" alt="SpatialData" height="120">
   </a>
   <br>
-  <span style="font-size: 100px; color: #1bb5ab;"><strong>+</strong></span>
+  <img src="img/logo-plus.svg" alt="plus" height="32">
   <br>
   <a href="https://github.com/saeyslab/harpy">
     <img src="https://raw.githubusercontent.com/saeyslab/harpy/main/docs/_static/img/logo.png" alt="Harpy" height="170">
