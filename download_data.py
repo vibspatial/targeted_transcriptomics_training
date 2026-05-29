@@ -16,9 +16,7 @@ DATASETS = [
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Download data for the targeted transcriptomics training notebooks."
-    )
+    parser = argparse.ArgumentParser(description="Download data for the spatial omics training notebooks.")
     parser.add_argument(
         "--cache_dir_path",
         "--cache-dir-path",
@@ -37,14 +35,12 @@ def main() -> None:
         registry.fetch(item)
 
     logger.info("Fetching Xenium ovarian cancer checkpoint_1.")
-    _ = hp.datasets.xenium_human_ovarian_cancer(
+    _ = hp.datasets.xenium_human_ovarian_cancer_course(
         training="checkpoint_1",
         path=args.cache_dir_path,
     )
     logger.info("Fetching Xenium ovarian cancer checkpoint_2.")
-    _ = hp.datasets.xenium_human_ovarian_cancer(
-        training="checkpoint_2", path=args.cache_dir_path
-    )
+    _ = hp.datasets.xenium_human_ovarian_cancer_course(training="checkpoint_2", path=args.cache_dir_path)
 
     logger.info("Fetching VectraPolaris data.")
     _ = hp.datasets.vectra_example(
@@ -65,6 +61,8 @@ def main() -> None:
 
     logger.info("Fetching Instanseg model.")
     _ = InstanSeg("fluorescence_nuclei_and_cells", verbosity=1, device="cpu")
+
+    logger.info("Fetching Cellpose models.")
 
     _ = models.CellposeModel(model_type="cyto3")
     _ = models.CellposeModel(model_type="nuclei")
