@@ -85,6 +85,12 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 . .\.venv\Scripts\Activate.ps1
 ```
 
+On Windows Command Prompt:
+
+```bat
+.venv\Scripts\activate.bat
+```
+
 On Windows Git Bash:
 
 ```bash
