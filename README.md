@@ -33,6 +33,12 @@ git clone https://github.com/vibspatial/targeted_transcriptomics_training.git
 cd targeted_transcriptomics_training
 ```
 
+If you already cloned the repository, update it from inside the project directory:
+
+```bash
+git pull
+```
+
 ## 2. Install uv
 
 Make sure `uv` is installed and available on your `PATH`.
@@ -43,30 +49,18 @@ Check with:
 uv --version
 ```
 
-## 3. Create the environment
+## 3. Create or sync the environment
 
-From the repository root, run this on macOS, Linux, WSL, or Git Bash:
+From the repository root, create or sync the Python 3.12 course environment by running:
 
 ```bash
-bash create_env.sh
+uv sync --python 3.12 --locked
 ```
 
-On Windows PowerShell, run:
-
-```powershell
-.\create_env.ps1
-```
-
-The script creates or updates a Python 3.12 environment at:
+This creates or updates the project environment at:
 
 ```text
 .venv
-```
-
-Internally, it runs:
-
-```bash
-UV_PROJECT_ENVIRONMENT=.venv uv sync --python 3.12 --locked
 ```
 
 This means:
@@ -87,6 +81,7 @@ source .venv/bin/activate
 On Windows PowerShell:
 
 ```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 . .\.venv\Scripts\Activate.ps1
 ```
 
@@ -98,31 +93,29 @@ source .venv/Scripts/activate
 
 ## 5. Download the course data
 
-After activating the environment, download the datasets and model weights used in the notebooks:
+After activating the environment, download the datasets and model weights used in the notebooks.
+
+On macOS, Linux, or WSL, run:
 
 ```bash
 python download_data.py
 ```
 
-This downloads the course data into the default Harpy data cache for your operating system. It also downloads the InstanSeg model and the Cellpose `cyto3` and `nuclei` models.
-
-To use a custom cache directory, pass `--cache-dir-path`:
-
-```bash
-python download_data.py --cache-dir-path /path/to/data/cache
-```
-
-On Windows PowerShell, for example:
+On Windows PowerShell, use a custom cache directory such as `C:\tmp`:
 
 ```powershell
-python download_data.py --cache-dir-path C:\Users\YourName\spatial_omics_data
+python download_data.py --cache-dir-path C:\tmp
 ```
+
+This downloads the course data into the selected cache directory. It also downloads the InstanSeg model and the Cellpose `cyto3` and `nuclei` models.
 
 ## 6. Use the environment in VS Code
 
-Open this repository in VS Code.
+Open this repository folder in VS Code.
 
-Select the Python interpreter from `.venv`:
+Open the Command Palette and run `Python: Select Interpreter`. Select the interpreter from `.venv`.
+
+On macOS, Linux, or WSL, choose:
 
 ```text
 .venv/bin/python
@@ -134,7 +127,7 @@ On Windows, choose:
 .venv\Scripts\python.exe
 ```
 
-When opening a notebook, click the kernel selector in the top-right corner and choose the same `.venv` interpreter.
+When opening a notebook, click the kernel selector in the top-right corner and choose the same `.venv` environment. It will be named `targeted-transcriptomics-training`.
 
 ## Updating dependencies
 
@@ -149,11 +142,5 @@ uv lock
 Then recreate or sync the environment with:
 
 ```bash
-bash create_env.sh
-```
-
-On Windows PowerShell, use:
-
-```powershell
-.\create_env.ps1
+uv sync --python 3.12 --locked
 ```
