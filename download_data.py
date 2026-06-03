@@ -1,4 +1,20 @@
 import argparse
+import logging
+
+class _SuppressHarpyMacsimaWarnings(logging.Filter):
+    def filter(self, record: logging.LogRecord) -> bool:
+        suppressed_log_messages = {
+            "Module 'bioio' is not installed. Install it with `pip install bioio` to use `harpy.io.macsima`.",
+            "Module 'bioio-ome-tiff' is not installed. Install it with `pip install bioio-ome-tiff` to use `harpy.io.macsima`.",
+        }
+        message = record.getMessage()
+        return message not in suppressed_log_messages and not message.startswith("no parent found for ")
+
+
+spatialdata_logger = logging.getLogger("spatialdata._logging")
+spatialdata_logger.addFilter(_SuppressHarpyMacsimaWarnings())
+ome_zarr_logger = logging.getLogger("ome_zarr.reader")
+ome_zarr_logger.addFilter(_SuppressHarpyMacsimaWarnings())
 
 import harpy as hp
 from cellpose import models
