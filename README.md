@@ -101,7 +101,7 @@ On macOS, Linux, or WSL, run:
 python download_data.py
 ```
 
-On Windows PowerShell, use a custom cache directory such as `C:\tmp`:
+On Windows, always set the cache directory explicitly, for example to `C:\tmp`:
 
 ```powershell
 python download_data.py --cache-dir-path C:\tmp
