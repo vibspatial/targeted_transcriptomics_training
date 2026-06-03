@@ -1,4 +1,4 @@
-# Spatial Omics Training
+# Spatial Omics Summer School
 
 <p align="center">
   <a href="https://spatialdata.scverse.org/">
