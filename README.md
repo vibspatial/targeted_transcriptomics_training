@@ -113,6 +113,8 @@ On Windows, always set the cache directory explicitly, for example to `C:\tmp`:
 python download_data.py --cache-dir-path C:\tmp
 ```
 
+Use a short cache path on Windows to avoid path-length errors when downloading and unpacking nested dataset files. Some Windows setups still enforce the traditional 260-character path limit unless long-path support is enabled.
+
 This downloads the course data into the selected cache directory. It also downloads the InstanSeg model and the Cellpose `cyto3` and `nuclei` models.
 
 ## 6. Use the environment in VS Code
