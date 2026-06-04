@@ -7,7 +7,7 @@ import qupath.lib.images.servers.ImageServerProvider
 import java.awt.image.BufferedImage
 import static qupath.lib.gui.scripting.QPEx.*
 
-def folderPath = 'D:/example_data_MACSima/REAscreen_IO_CRC/REAscreen_IO_CRC'  // <-- Update this to your folder
+def folderPath = 'D:/training_data/REAscreen_IO_CRC_fixed/REAscreen_IO_CRC'  // <-- Update this to your folder
 def folder = new File(folderPath)
 
 if (!folder.isDirectory()) {
