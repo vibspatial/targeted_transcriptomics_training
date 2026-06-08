@@ -2305,7 +2305,7 @@ wheels = [
 
 [[package]]
 name = "napari-harpy"
-version = "0.0.7"
+version = "0.0.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dask", extra = ["dataframe"] },
@@ -2317,10 +2317,11 @@ dependencies = [
     { name = "napari", version = "0.7.0", source = { registry = "https://pypi.org/simple" }, extra = ["all"], marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'" },
     { name = "pandas" },
     { name = "pyarrow" },
+    { name = "spatialdata" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ee/e4/44820f9a71c8e5e88a363ee5c016ab16738c5c8a2f76d03e6f8b055b4f8c/napari_harpy-0.0.7.tar.gz", hash = "sha256:c343f0c88d72f41988f6597623772e3f4e52e42f9a3ab922c13927f75107a9af", size = 11441362, upload-time = "2026-05-28T10:36:30.581Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/aa/fd/a9ce536ef4488e1ea827e0918de96df4c54ffff2cf862aef9cbf3b76d586/napari_harpy-0.0.9.tar.gz", hash = "sha256:d620e1364c03636327296adee8d066d2d088991162c61f8dec9f7cb8ad30e96b", size = 11817386, upload-time = "2026-06-06T19:25:38.163Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8a/33/571778bf1789934db5ed380ef4d8afe281ce05de3a4f321ff0de6161cdb5/napari_harpy-0.0.7-py3-none-any.whl", hash = "sha256:c64c6d82bc04fe9378838c13b1d73483b2a9289192a6f6ff61db38c05256bada", size = 493365, upload-time = "2026-05-28T10:36:28.107Z" },
+    { url = "https://files.pythonhosted.org/packages/33/2f/0dfc2ac23fd50ca8122eff047a93b9fff01a7afd599d94a18126356945ee/napari_harpy-0.0.9-py3-none-any.whl", hash = "sha256:aa7c8b6c55297a19d0d904b67699baf70d906be2fb5feec700e3d62a8034a8c5", size = 503090, upload-time = "2026-06-06T19:25:35.208Z" },
 ]
 
 [[package]]
@@ -4356,7 +4357,7 @@ requires-dist = [
     { name = "jupyter" },
     { name = "mofapy2" },
     { name = "mofax" },
-    { name = "napari-harpy", specifier = ">=0.0.7" },
+    { name = "napari-harpy", specifier = ">=0.0.9" },
     { name = "numba", specifier = ">=0.64" },
     { name = "numpy", specifier = ">=2.4.6" },
     { name = "spatialdata", specifier = "==0.7.2" },

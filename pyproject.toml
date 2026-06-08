@@ -36,7 +36,7 @@ dependencies = [
     "numpy>=2.4.6",
     "numba>=0.64",
     "harpy-analysis[extra,napari]>=0.4.1",
-    "napari-harpy>=0.0.7",
+    "napari-harpy>=0.0.9",
     "instanseg-torch @ git+https://github.com/instanseg/instanseg.git@main",
     "spatialdata==0.7.2",
     "zarr>=3.2.1",
