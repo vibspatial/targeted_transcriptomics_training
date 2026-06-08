@@ -1210,18 +1210,6 @@ napari = [
 ]
 
 [[package]]
-name = "harpy-vitessce"
-version = "0.1.0"
-source = { git = "https://github.com/vibspatial/harpy_vitessce.git?rev=main#91ecd851d581a0e0ffc27c54c52de1afb500be63" }
-dependencies = [
-    { name = "harpy-analysis" },
-    { name = "lazy-loader" },
-    { name = "loguru" },
-    { name = "setuptools" },
-    { name = "spatialdata" },
-]
-
-[[package]]
 name = "heapdict"
 version = "1.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -4347,7 +4335,6 @@ dependencies = [
     { name = "bokeh" },
     { name = "cellpose" },
     { name = "harpy-analysis", extra = ["extra", "napari"] },
-    { name = "harpy-vitessce" },
     { name = "instanseg-torch" },
     { name = "jupyter" },
     { name = "mofapy2" },
@@ -4365,7 +4352,6 @@ requires-dist = [
     { name = "bokeh" },
     { name = "cellpose", specifier = "==3.1.1.3" },
     { name = "harpy-analysis", extras = ["extra", "napari"], specifier = ">=0.4.1" },
-    { name = "harpy-vitessce", git = "https://github.com/vibspatial/harpy_vitessce.git?rev=main" },
     { name = "instanseg-torch", git = "https://github.com/instanseg/instanseg.git?rev=main" },
     { name = "jupyter" },
     { name = "mofapy2" },

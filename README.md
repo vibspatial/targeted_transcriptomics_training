@@ -137,6 +137,14 @@ On Windows, choose:
 
 When opening a notebook, click the kernel selector in the top-right corner and choose the same `.venv` environment. It will be named `targeted-transcriptomics-training`.
 
+## Vitessce notebooks
+
+The Vitessce hands-on notebooks use a separate environment because current
+`harpy-vitessce` releases require a newer SpatialData stack than the main
+course notebooks.
+
+See [`vitessce/README.md`](vitessce/README.md) for the Vitessce-specific setup.
+
 ## Updating dependencies
 
 For normal course use, do not edit `uv.lock`.

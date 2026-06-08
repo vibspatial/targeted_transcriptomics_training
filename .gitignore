@@ -4,6 +4,7 @@ spatial
 logs
 .env
 .autoenv
+.venv/
 
 notebooks
 
