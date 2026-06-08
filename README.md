@@ -107,10 +107,10 @@ On macOS, Linux, or WSL, run:
 python download_data.py
 ```
 
-On Windows, always set the cache directory explicitly to `C:\hp_cache`:
+On Windows, always set the cache directory explicitly to `C:/hp_cache`:
 
 ```powershell
-python download_data.py --cache-dir-path C:\hp_cache
+python download_data.py --cache-dir-path C:/hp_cache
 ```
 
 Use a short cache path on Windows to avoid path-length errors when downloading and unpacking nested dataset files. Some Windows setups still enforce the traditional 260-character path limit unless long-path support is enabled.
