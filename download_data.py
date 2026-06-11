@@ -1,6 +1,7 @@
 import argparse
 import logging
 
+
 class _SuppressHarpyMacsimaWarnings(logging.Filter):
     def filter(self, record: logging.LogRecord) -> bool:
         suppressed_log_messages = {
@@ -21,6 +22,8 @@ from cellpose import models
 from harpy.datasets.registry import get_registry
 from instanseg import InstanSeg
 from loguru import logger
+
+from summer_school_datasets import xenium_human_ovarian_cancer_course
 
 DATASETS = [
     "transcriptomics/xenium/Xenium_human_ovarian_cancer/training_march_2026/tumor.geojson",  # Region annotation from Qupath
@@ -51,12 +54,12 @@ def main() -> None:
         registry.fetch(item)
 
     logger.info("Fetching Xenium ovarian cancer checkpoint_1.")
-    _ = hp.datasets.xenium_human_ovarian_cancer_course(
+    _ = xenium_human_ovarian_cancer_course(
         checkpoint="checkpoint_1",
         path=args.cache_dir_path,
     )
     logger.info("Fetching Xenium ovarian cancer checkpoint_2.")
-    _ = hp.datasets.xenium_human_ovarian_cancer_course(
+    _ = xenium_human_ovarian_cancer_course(
         checkpoint="checkpoint_2",
         path=args.cache_dir_path,
     )
