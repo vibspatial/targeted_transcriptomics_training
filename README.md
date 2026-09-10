@@ -14,7 +14,7 @@
 
 <br>
 
-This repository contains course material for the [Spatial Omics Summer School](https://www.vibconferences.be/events/spatial-omics-summer-school). The notebooks guide participants through working with [`SpatialData`](https://spatialdata.scverse.org/) objects, targeted transcriptomics data and spatial proteomics data.
+This repository contains course material for the [Spatial-Cell-ID Summer School](https://www.cecam.org/workshop-details/scid2026-first-spatial-cell-id-summer-school-using-spatial-omics-to-uncover-cell-identity-during-developmental-processes-1537). The notebooks guide participants through working with [`SpatialData`](https://spatialdata.scverse.org/) objects, targeted transcriptomics data and spatial proteomics data.
 
 The tutorials use [Harpy](https://github.com/saeyslab/harpy) for spatial omics analysis workflows and [napari-harpy](https://github.com/vibspatial/napari-harpy) for interactive inspection and visualization in napari.
 
