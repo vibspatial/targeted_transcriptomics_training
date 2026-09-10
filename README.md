@@ -51,10 +51,10 @@ uv --version
 
 ## 3. Create or sync the environment
 
-From the repository root, create or sync the Python 3.12 course environment by running:
+From the repository root, create or sync the Python 3.13 course environment by running:
 
 ```bash
-uv sync --python 3.12 --locked
+uv sync --python 3.13 --locked
 ```
 
 This creates or updates the project environment at:
@@ -158,5 +158,5 @@ uv lock
 Then recreate or sync the environment with:
 
 ```bash
-uv sync --python 3.12 --locked
+uv sync --python 3.13 --locked
 ```

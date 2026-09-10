@@ -9,7 +9,7 @@ name = "targeted-transcriptomics-training"
 version = "0.1.0"
 description = "Course material for targeted transcriptomics and spatial proteomics training."
 readme = "README.md"
-requires-python = ">=3.12,<3.13"
+requires-python = ">=3.13,<3.14"
 authors = [
     { name = "VIB Spatial Catalyst" },
 ]
@@ -26,7 +26,7 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
     "Topic :: Scientific/Engineering :: Image Processing",
 ]
@@ -35,13 +35,12 @@ dependencies = [
     # stack works with NumPy 2.4.x, which avoids StringDType plotting crashes.
     "numpy>=2.4.6",
     "numba>=0.64",
-    "harpy-analysis[extra,napari]>=0.4.1",
-    "napari-harpy>=0.0.9",
+    "harpy-analysis[extra,napari,cellpose3] @ git+https://github.com/saeyslab/harpy.git@main",
+    "napari-harpy @ git+https://github.com/vibspatial/napari-harpy.git@feature/dual_layout",
     "instanseg-torch @ git+https://github.com/instanseg/instanseg.git@main",
-    "spatialdata==0.7.2",
+    "spatialdata>=0.8.0",
     "zarr>=3.2.1",
     "squidpy",
-    "cellpose==3.1.1.3",
     "jupyter",
     "mofax",
     "mofapy2",
